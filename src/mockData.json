@@ -1,0 +1,38 @@
+[
+    {
+        "category": "Fruits",
+        "price": "1",
+        "stocked": false,
+        "name": "Apple"
+    },
+    {
+        "category": "Fruits",
+        "price": "1",
+        "stocked": false,
+        "name": "Dragonfruit"
+    },
+    {
+        "category": "Fruits",
+        "price": "1",
+        "stocked": false,
+        "name": "Passionfruit"
+    },
+    {
+        "category": "Fruits",
+        "price": "1",
+        "stocked": false,
+        "name": "Spinach"
+    },
+    {
+        "category": "Vegetables",
+        "price": "1",
+        "stocked": false,
+        "name": "Pumpkin"
+    },
+    {
+        "category": "Vegetables",
+        "price": "1",
+        "stocked": false,
+        "name": "Peas"
+    }
+]
