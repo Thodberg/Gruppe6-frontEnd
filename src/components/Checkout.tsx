@@ -30,92 +30,91 @@ const DELIVERYCOSTS = [
     }
 ]
 
-let deliveryPrice: number = DELIVERYCOSTS[0].price
-
 type Props = {
     products: Product[];
 }
 
 // TODO import Basket under titel once its finished 
 export const Checkout = ({ products }: Props) => {
+    const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
+
+    //need to remove centering once its included in css
+    function Title() {
+        return (
+            <div className='theme-c'><h2><center>Ordreoversigt</center></h2></div>
+        )
+    }
+
+    function Subtotal({ products }: Props) {
+        let productPrice = 0
+        products.forEach(element => {
+            productPrice += element.price;
+        });
+        let subtotal = "Subtotal: " + productPrice + " DKK";
+        return (
+            <div className='theme-c'><h2>{subtotal}</h2></div>
+        )
+    }
+
+    function DeliveryCost({ products }: Props) {
+        return (
+            <div className='theme-c'><h2>{"Levering: " + deliveryPrice + " DKK"}</h2></div>
+        )
+    }
+
+    function DeliveryMethods({ products }: Props) {
+        function selectRadio(price: number) {
+            setDeliveryPrice(price);
+        }
+
+        return (
+
+            <form>
+                <fieldset>
+                    {DELIVERYCOSTS.map((method) => {
+                        return (
+                            <div>
+                                <label>
+                                    <input type="radio" id={method.name} name="deliveryMethods" value={method.name} onClick={() => selectRadio(method.price)} />
+                                    <img
+                                        src={method.img}
+                                        alt={method.altText}
+                                        width="100" />
+                                    <p>
+                                        {method.description}
+                                    </p>
+                                </label>
+                            </div>
+                        )
+                    })}
+                </fieldset>
+            </form>
+        )
+    }
+
+    //TODO go to DeliveryInformation page when onClick is activated
+    function Total({ products }: Props) {
+        let productPrice = 0
+        products.forEach(element => {
+            productPrice += element.price;
+        });
+        let totalPrice = productPrice + deliveryPrice
+        let total = "Total: " + totalPrice + " DKK"
+        return (
+            <div><h1>{total}</h1><center><button onClick={() => { }}>Til kassen</button></center></div>
+        )
+    }
+
     return (
         <div className='theme-checkout'>
             <Title />
-            <Subtotal products={products}/>
-            <DeliveryCost products={products}/>
-            <DeliveryMethods products={products}/>
-            <Total products={products}/>
+            <Subtotal products={products} />
+            <DeliveryCost products={products} />
+            <DeliveryMethods products={products} />
+            <Total products={products} />
         </div>
     )
 }
 
-//need to remove centering once its included in css
-function Title() {
-    return (
-        <div className='theme-c'><h2><center>Ordreoversigt</center></h2></div>
-    )
-}
 
-function Subtotal({ products }: Props) {
-    let productPrice = 0
-    products.forEach(element => {
-        productPrice += element.price;
-    });
-    let subtotal = "Subtotal: " + productPrice + " DKK";
-    return (
-        <div className='theme-c'><h2>{subtotal}</h2></div>
-    )
-}
-
-//TODO need to include the option to choose
-function DeliveryCost({ products }: Props) {
-
-    return (
-        <div className='theme-c'><h2>{"Levering: " + deliveryPrice + " DKK"}</h2></div>
-    )
-}
-
-//TO DO implement radiobuttons checked does something
-function DeliveryMethods({ products }: Props) {
-    function selectRadio(price: Number) {
-
-}
-
-    return (
-        
-        <form>
-        <fieldset>
-            {DELIVERYCOSTS.map((method, index) => {
-                return (
-                    <div>
-                    <label>
-                    <input type="radio" id={method.name} name="deliveryMethods" value={method.name} onClick={() => selectRadio(method.price)}/>
-                    <img
-                src={method.img}
-                alt={method.altText}
-                width="100" />
-            <p>
-                {method.description}
-            </p>
-            </label>
-                </div>
-                )
-            })}
-        </fieldset>
-        </form>
-    )
-}
-
-//TODO go to DeliveryInformation page when onClick is activated
-function Total({ products }: Props) {
-    let productPrice = 0
-    products.forEach(element => {
-        productPrice += element.price;
-    });
-    let totalPrice = productPrice + deliveryPrice
-    let total = "Total: " + totalPrice + " DKK"
-    return (
-        <div><h1>{total}</h1><center><button onClick={() => { }}>Til kassen</button></center></div>
-    )
-}
 
