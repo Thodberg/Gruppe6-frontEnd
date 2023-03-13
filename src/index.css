@@ -23,17 +23,125 @@ a:hover {
   color: #535bf2;
 }
 
+h2 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+h3 {
+  padding: 10px;
+}
+
+h4 {
+  padding: 10px;
+}
+
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  display:  flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 3em;
+  line-height: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+tr {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+td {
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-right:10px; 
+}
+
+table {
+  margin: 20px;
+  border-spacing: 0 20px;
+  table-layout: fixed;
+}
+
+/*Theme for overall website*/
+.theme-a {
+  background: #D9F4B7;
+  color: #2C4A1D;
+}
+/*TODO add darkmode*/
+@media (prefers-color-scheme: dark) {
+  .theme-a.adaptive {
+    background: #EBF6D8;
+    color: rgb(255, 255, 255);
+    outline: 5px dashed #000;
+
+  }
+}
+
+/*Theme for cards*/
+.theme-b {
+  background: #FAF9E8;
+  color: #000000;
+  padding: 10px;
+}
+/*TODO add darkmode*/
+@media (prefers-color-scheme: dark) {
+  .theme-a.adaptive {
+    background: #EBF6D8;
+    color: rgb(255, 255, 255);
+    outline: 5px dashed #000;
+
+  }
+}
+
+/*Theme for sub-cards*/
+.theme-c {
+  background: #EBF6D8;
+  color: #000000;
+}
+/*TODO add darkmode*/
+@media (prefers-color-scheme: dark) {
+  .theme-a.adaptive {
+    background: #EBF6D8;
+    color: rgb(255, 255, 255);
+    outline: 5px dashed #000;
+  }
+}
+
+/*Theme for overall website*/
+.theme-checkout {
+  background: #EBF6D8;
+  color: #2C4A1D;
+  position: fixed;
+  right: 0;
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.4);
+  transition: 0.3s;
+  margin-right: 25px;
+  padding-bottom: 10px;
+}
+
+.theme-address-forms {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+/*Theme for sub-cards*/
+.theme-d {
+  background: #EBF6D8;
+  color: #000000;
+}
+/*TODO add darkmode*/
+@media (prefers-color-scheme: dark) {
+  .theme-a.adaptive {
+    background: #EBF6D8;
+    color: rgb(255, 255, 255);
+    outline: 5px dashed #000;
+  }
 }
 
 button {
@@ -66,4 +174,16 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+div.topbar {
+  background: #B5D38E;
+  color: #2C4A1D;
+  position: relative;
+  height: fit-content;
+  width: 100vw;
+}
+
+.break {
+  width: 100%;
 }
