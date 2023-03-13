@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Logo from '../assets/react.svg';
 import { Product } from '../models/Product';
+import { Checkout } from "./Checkout";
 
 type Props = {
     products: Product[];
@@ -27,65 +27,65 @@ export const Products = ({ products }: Props) => {
         )
     }
 
-    function addQuantityToList() {
+    function addQuantityToList(product: Product) {
         /* loop through chosenProducts and see if product is on it.
         if it is on it then just setChosenProducts
         if not on it use addProductToList functionen*/
         setChosenProducts(
-            [
-                // add amount to list
-            ]
-        )
-    }
-
-    function removeProductFromList() {
-        setChosenProducts(
             [...chosenProducts,
-                // reduce list
+                // TODO add element to list
+
             ]
         )
     }
 
-    function removeQuantityFromList() {
-        setChosenProducts(
-            [
-                ...chosenProducts,
+    function removeProductFromList(product: Product) {
+            document.getElementById(product.id)?.remove()
+    }
 
-                //reduce amount in list 
-            ]
-        )
+    function removeQuantityFromList(product: Product) {
+        if(product.quantity > 0){
+            product.quantity--
+        }
     }
 
     return (
-        <>
+        <div className='theme-b'>
+        <table>
+        <tbody>
             {products.map((product, index) => {
                 return (
-                    <tr key={index}>
-                        <td>
-                            <h2>
+                    <tr key={index} id={product.id} className='theme-c'>
+                        <td width="200px">
+                            <h2 >
                                 {product.name}
                             </h2>
+                            <div className='break'></div>
+                            <button onClick={() => removeProductFromList(product)}>🗑️</button>
                         </td>
-                        <td>
+                        <td width="100px">
                             <h3>
-                                {product.price + "kr"}
+                                {(product.price*product.quantity) + " " +product.currency}
                             </h3>
                         </td>
                         <td>
-                            <button onClick={addQuantityToList}>+</button>
+                            <button onClick={() => addQuantityToList(product)}>+</button>
                         </td>
-                        <h4>
-                            Antal
+                        <td width="50px">
+                            <center>
+                        <h4 id={product.id+"quantity"}>
+                            {product.quantity}
                         </h4>
-                        <td>
-                            <button onClick={removeQuantityFromList}>-</button>
+                        </center>
                         </td>
                         <td>
-                            <button onClick={removeProductFromList}>🗑️</button>
+                            <button onClick={() => removeQuantityFromList(product)}>-</button>
                         </td>
                     </tr>
                 )
-            })}
-        </>
+            })} 
+            </tbody>
+            </table>
+        </div>
     )
 }

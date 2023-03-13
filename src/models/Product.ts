@@ -1,6 +1,11 @@
 export interface Product {
-    category: string,
-    price: string,
-    stocked: boolean,
-    name: string
+    id: string,
+    name: string,
+    price: number,
+    currency: string,
+    quantity: number,
+    rebateQuantity: number,
+    rebatePercent: number,
+    upsellProductId: string
+
 }
