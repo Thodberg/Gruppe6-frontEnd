@@ -41,7 +41,7 @@ body {
   padding: 0;
   display:  flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 h1 {
@@ -123,6 +123,11 @@ table {
   transition: 0.3s;
   margin-right: 25px;
   padding-bottom: 10px;
+}
+
+.theme-address-forms {
+  width: 200px;
+  margin-bottom: 20px;
 }
 
 /*Theme for sub-cards*/

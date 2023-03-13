@@ -34,7 +34,7 @@
       "name": "Omega 3 fiskeolie, 1000mg, 120 stk",
       "price": 69,
       "currency": "DKK",
-      "quantity": 1,
+      "quantity": 2,
       "rebateQuantity": 5,
       "rebatePercent": 10,
       "upsellProductId": ""
@@ -54,9 +54,9 @@
       "name": "Kaffekværn Præcision",
       "price": 320,
       "currency": "DKK",
-      "quantity": 1,
-      "rebateQuantity": 0,
-      "rebatePercent": 0,
+      "quantity": 2,
+      "rebateQuantity": 2,
+      "rebatePercent": 50,
       "upsellProductId": ""
     },
     {
