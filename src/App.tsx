@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Checkout } from "./components/Checkout";
 import { Products } from "./components/Products";
+import { AddressForms } from "./components/AdressForms";
 import { Topbar } from "./components/Topbar";
 import MockData from "./mockData.json"
 import { Product } from './models/Product';
@@ -9,15 +11,17 @@ type Props = {
 }
 
 export default function App() {
+  const [products, setProducts] = useState<Product[]>(MockData);
+
   return (
-      <body className='theme-a'>
-        <Topbar />
-        <div>
-          <Products products={MockData} />
-        </div>
-        <div>
-          <Checkout products={MockData} />
-        </div>
-      </body>
+    <body className='theme-a'>
+      <Topbar />
+      <div>
+        <Products products={products} setProducts={setProducts} />
+      </div>
+      <div>
+        <Checkout products={products} />
+      </div>
+    </body>
   );
 }

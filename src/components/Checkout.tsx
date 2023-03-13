@@ -37,6 +37,7 @@ type Props = {
 // TODO import Basket under titel once its finished 
 export const Checkout = ({ products }: Props) => {
     const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
+    const [currentDeliver, setCurrentDeliver] = useState<string>('');
 
     //need to remove centering once its included in css
     function Title() {
@@ -63,8 +64,9 @@ export const Checkout = ({ products }: Props) => {
     }
 
     function DeliveryMethods({ products }: Props) {
-        function selectRadio(price: number) {
+        function selectRadio(price: number, name: string) {
             setDeliveryPrice(price);
+            setCurrentDeliver(name)
         }
 
         return (
@@ -75,7 +77,7 @@ export const Checkout = ({ products }: Props) => {
                         return (
                             <div>
                                 <label>
-                                    <input type="radio" id={method.name} name="deliveryMethods" value={method.name} onClick={() => selectRadio(method.price)} />
+                                    <input type="radio" id={method.name} name="deliveryMethods" value={method.name} onClick={() => selectRadio(method.price, method.name)} checked={method.name == currentDeliver} />
                                     <img
                                         src={method.img}
                                         alt={method.altText}

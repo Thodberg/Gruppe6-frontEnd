@@ -34,7 +34,7 @@
       "name": "Hvide roser",
       "price": 69,
       "currency": "DKK",
-      "quantity": 1,
+      "quantity": 2,
       "rebateQuantity": 5,
       "rebatePercent": 10,
       "upsellProductId": ""
@@ -54,9 +54,9 @@
       "name": "Lilla perlehyacint",
       "price": 320,
       "currency": "DKK",
-      "quantity": 1,
-      "rebateQuantity": 0,
-      "rebatePercent": 0,
+      "quantity": 2,
+      "rebateQuantity": 2,
+      "rebatePercent": 50,
       "upsellProductId": ""
     },
     {
