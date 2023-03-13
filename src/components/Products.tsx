@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Product } from '../models/Product';
 import { Checkout } from "./Checkout";
 
+
 type Props = {
     products: Product[];
 }
@@ -10,12 +11,16 @@ type Props = {
 export const Products = ({ products }: Props) => {
 
     const [chosenProducts, setChosenProducts] = useState([]);
-
-
+    
+    function addDiscountText (product: Product){
+    if (product.quantity >= product.rebateQuantity) {
+        return "Du har \%d eller mere og får 25%"
+     }  
+     else if(product.quantity < product.rebateQuantity) {
+        return "Få 25 rabat, hvis du køber \%d"
+     }
+    }
     //TODO add validation so not allowed to remove when 0
-
-    //TODO add nudging to buy more to get a rebate
-
     //TODO do the rebate remember a minimun amount to be paid
 
     function addProductToList() {

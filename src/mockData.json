@@ -1,7 +1,7 @@
 [
     {
-      "id": "vitamin-d-90-100",
-      "name": "D-vitamin, 90ug, 100 stk",
+      "id": "roses-red",
+      "name": "Røde roser",
       "price": 116,
       "currency": "DKK",
       "quantity": 1,
@@ -10,8 +10,8 @@
       "upsellProductId": ""
     },
     {
-      "id": "vitamin-c-500-250",
-      "name": "C-vitamin, 500mg, 250 stk",
+      "id": "roses-pink",
+      "name": "Lyserøde roser",
       "price": 150,
       "currency": "DKK",
       "quantity": 1,
@@ -20,8 +20,8 @@
       "upsellProductId": "vitamin-c-depot-500-250"
     },
     {
-      "id": "vitamin-c-depot-500-250",
-      "name": "C-vitamin Depot, 500mg, 250 stk",
+      "id": "roses-yellow",
+      "name": "Gule roser",
       "price": 175,
       "currency": "DKK",
       "quantity": 1,
@@ -30,8 +30,8 @@
       "upsellProductId": ""
     },
     {
-      "id": "fish-oil-1000-120",
-      "name": "Omega 3 fiskeolie, 1000mg, 120 stk",
+      "id": "roses-white",
+      "name": "Hvide roser",
       "price": 69,
       "currency": "DKK",
       "quantity": 1,
@@ -40,8 +40,8 @@
       "upsellProductId": ""
     },
     {
-      "id": "coffee-grinder",
-      "name": "Kaffekværn",
+      "id": "pearlHyacinth-white",
+      "name": "Hvid perlehyacint",
       "price": 145,
       "currency": "DKK",
       "quantity": 1,
@@ -50,8 +50,8 @@
       "upsellProductId": "coffee-grinder-pro"
     },
     {
-      "id": "coffee-grinder-pro",
-      "name": "Kaffekværn Præcision",
+      "id": "pearHyacinth-purple",
+      "name": "Lilla perlehyacint",
       "price": 320,
       "currency": "DKK",
       "quantity": 1,
@@ -60,8 +60,8 @@
       "upsellProductId": ""
     },
     {
-      "id": "toothbrush",
-      "name": "Tandbørste, 5stk",
+      "id": "butterflyBusc-white",
+      "name": "Hvid Sommerfuglebusk ",
       "price": 40,
       "currency": "DKK",
       "quantity": 1,
@@ -70,8 +70,8 @@
       "upsellProductId": "toothbrush-bamboo"
     },
     {
-      "id": "toothbrush-bamboo",
-      "name": "Tandbørste i bambus, 3stk",
+      "id": "butterflyBuch-purple",
+      "name": "Lilla sommerfuglebusk",
       "price": 40,
       "currency": "DKK",
       "quantity": 1,
