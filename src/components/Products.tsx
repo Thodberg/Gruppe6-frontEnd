@@ -49,6 +49,21 @@ export const Products = ({ products }: Props) => {
         }
     }
 
+    function calcPrice(product: Product){
+        if(product.quantity >= product.rebateQuantity && product.price*product.quantity >= 300){
+            return ((product.price*product.quantity)*(0.9-product.rebatePercent/100))
+        }
+        else if(product.price*product.quantity >= 300){
+            return ((product.price*product.quantity)*0.9)
+        }
+        else if(product.quantity >= product.rebateQuantity){
+            return ((product.price*product.quantity)*(1-product.rebatePercent/100)) 
+        }
+        else {
+            return(product.price*product.quantity)
+        }
+    }
+
     return (
         <div className='theme-b'>
         <table>
@@ -64,8 +79,8 @@ export const Products = ({ products }: Props) => {
                             <button onClick={() => removeProductFromList(product)}>🗑️</button>
                         </td>
                         <td width="100px">
-                            <h3>
-                                {(product.price*product.quantity) + " " +product.currency}
+                            <h3 id={product.id+"bulkDiscount"}>
+                                {calcPrice(product) + " " +product.currency}
                             </h3>
                         </td>
                         <td>
