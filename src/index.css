@@ -24,7 +24,8 @@ a:hover {
 }
 
 h2 {
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 h3 {
@@ -44,8 +45,10 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 3em;
+  line-height: 1;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 tr {
@@ -116,8 +119,10 @@ table {
   color: #2C4A1D;
   position: fixed;
   right: 0;
-
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.4);
+  transition: 0.3s;
   margin-right: 25px;
+  padding-bottom: 10px;
 }
 
 /*Theme for sub-cards*/

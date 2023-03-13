@@ -17,20 +17,20 @@ const DELIVERYCOSTS = [
     {
         name: "Bring",
         price: 46,
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bring_logo.svg/1280px-Bring_logo.svg.png",
+        img: "src/assets/bring logo.png",
         altText: "Bring",
         description: "Valgfri pakkeshop 1-2 hverdage"
     },
     {
         name: "Plante Land",
         price: 0,
-        img: "https://seekvectorlogo.com/wp-content/uploads/2022/01/general-logistics-systems-gls-vector-logo-2022.png",
+        img: "src/assets/GLS logo.png",
         altText: "Plante Land",
         description: "Hent i butik"
     }
 ]
 
-let deliveryPrice: string = "Levering: " + DELIVERYCOSTS[0].price
+let deliveryPrice: number = DELIVERYCOSTS[0].price
 
 type Props = {
     products: Product[];
@@ -71,7 +71,7 @@ function Subtotal({ products }: Props) {
 function DeliveryCost({ products }: Props) {
 
     return (
-        <div className='theme-c'><h2>{deliveryPrice + " DKK"}</h2></div>
+        <div className='theme-c'><h2>{"Levering: " + deliveryPrice + " DKK"}</h2></div>
     )
 }
 
@@ -108,15 +108,14 @@ function DeliveryMethods({ products }: Props) {
 
 //TODO go to DeliveryInformation page when onClick is activated
 function Total({ products }: Props) {
-    let prodcutPrice = 0
+    let productPrice = 0
     products.forEach(element => {
-        prodcutPrice += element.price;
+        productPrice += element.price;
     });
-    let deliveryPrice = DELIVERYCOSTS[0].price
-    let totalPrice = prodcutPrice + deliveryPrice
-    let total = "Pris i alt: " + totalPrice
+    let totalPrice = productPrice + deliveryPrice
+    let total = "Total: " + totalPrice + " DKK"
     return (
-        <div><h1>{total}</h1><button onClick={() => { }}>Til kassen</button></div>
+        <div><h1>{total}</h1><center><button onClick={() => { }}>Til kassen</button></center></div>
     )
 }
 
