@@ -44,7 +44,7 @@ export const Products = ({ products }: Props) => {
     }
 
     function removeQuantityFromList(product: Product) {
-        if(product.quantity > 0){
+        if(product.quantity > 1){
             product.quantity--
         }
     }
