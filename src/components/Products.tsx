@@ -23,12 +23,14 @@ export const Products = ({ products, setProducts }: Props) => {
 
     function addQuantityToList(product: Product) {
         {
-            products.length ? (
-                products.find((e) => {
+            let newProducts = [...products,
+            ]
+            newProducts.length ? (
+                newProducts.find((e) => {
                     if (e.id === product.id) {
                         e.quantity++;
                         setProducts(
-                            [...products,
+                            [...newProducts,
                             ]
                         )
                     }
