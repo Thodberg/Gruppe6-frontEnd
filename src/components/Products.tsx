@@ -1,24 +1,30 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { Product } from '../models/Product';
-import MockData from '../mockData.json'
 import { Checkout } from "./Checkout";
 
 type Props = {
     products: Product[];
-    setProducts: Dispatch<SetStateAction<Product[]>>;
 }
 
-export const Products = ({ products, setProducts }: Props) => {
+
+export const Products = ({ products }: Props) => {
+
+    const [chosenProducts, setChosenProducts] = useState([]);
+
+
+    //TODO add validation so not allowed to remove when 0
 
     //TODO add nudging to buy more to get a rebate
 
-    function addProductToList(product: Product) {
-        setProducts(
-            [...products,
-                product
+    //TODO do the rebate remember a minimun amount to be paid
+
+    function addProductToList() {
+        setChosenProducts(
+            [...chosenProducts,
+                // TODO add element to list
+
             ]
         )
-        addQuantityToList(product)
     }
 
     function addQuantityToList(product: Product) {
@@ -48,20 +54,6 @@ export const Products = ({ products, setProducts }: Props) => {
     function removeQuantityFromList(product: Product) {
         if (product.quantity > 0) {
             product.quantity--
-        }
-
-        if (product.quantity > 1) {
-            products.find((e) => {
-                if (e.id === product.id) {
-                    e.quantity--;
-                    setProducts(
-                        [...products,
-                        ]
-                    )
-                }
-            })
-        } else {
-            removeProductFromList(product)
         }
     }
 
@@ -120,5 +112,3 @@ export const Products = ({ products, setProducts }: Props) => {
         </div>
     )
 }
-
-
