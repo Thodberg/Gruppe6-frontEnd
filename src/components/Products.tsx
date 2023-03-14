@@ -1,30 +1,24 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { Product } from '../models/Product';
-import { Checkout } from "./Checkout";
 
 type Props = {
     products: Product[];
+    setProducts: Dispatch<SetStateAction<Product[]>>;
 }
 
-
-export const Products = ({ products }: Props) => {
+export const Products = ({ products, setProducts }: Props) => {
 
     const [chosenProducts, setChosenProducts] = useState([]);
 
-
-    //TODO add validation so not allowed to remove when 0
-
     //TODO add nudging to buy more to get a rebate
 
-    //TODO do the rebate remember a minimun amount to be paid
-
-    function addProductToList() {
-        setChosenProducts(
-            [...chosenProducts,
-                // TODO add element to list
-
+    function addProductToList(product: Product) {
+        setProducts(
+            [...products,
+                product
             ]
         )
+        addQuantityToList(product)
     }
 
     function addQuantityToList(product: Product) {
