@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../models/Product';
 
-/*Here is the checkout box with its functionality. */
-
 //replace with orders
 
 //replace URLs with more permanent solution
@@ -34,7 +32,6 @@ type Props = {
     products: Product[];
 }
 
-// TODO import Basket under titel once its finished 
 export const Checkout = ({ products }: Props) => {
     const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
     const [currentDeliver, setCurrentDeliver] = useState<string>('');

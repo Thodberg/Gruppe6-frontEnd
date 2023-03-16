@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { Product } from '../models/Product';
 
 type Props = {
@@ -7,8 +7,6 @@ type Props = {
 }
 
 export const Products = ({ products, setProducts }: Props) => {
-
-    const [chosenProducts, setChosenProducts] = useState([]);
 
     //TODO add nudging to buy more to get a rebate
 
