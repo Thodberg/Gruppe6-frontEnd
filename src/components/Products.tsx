@@ -20,33 +20,42 @@ export const Products = ({ products, setProducts }: Props) => {
     }
 
     function addQuantityToList(product: Product) {
-        {
-            let newProducts = [...products,
-            ]
-            newProducts.length ? (
-                newProducts.find((e) => {
-                    if (e.id === product.id) {
-                        e.quantity++;
-                        setProducts(
-                            [...newProducts,
-                            ]
-                        )
-                    }
-                })
-            ) : (
-                addProductToList(product)
-            )
-        }
+        let newProducts = [...products,
+        ]
+        newProducts.length ? (
+            newProducts.find((e) => {
+                if (e.id === product.id) {
+                    e.quantity++;
+                    setProducts(
+                        [...newProducts,
+                        ]
+                    )
+                }
+            })
+        ) : (
+            addProductToList(product)
+        )
+    }
+
+    function removeQuantityFromList(product: Product) {
+        let newProducts = [...products,
+        ]
+        newProducts.find((e) => {
+            if (e.id === product.id) {
+                e.quantity--;
+                if (e.quantity < 1) {
+                    removeProductFromList(product)
+                }
+                setProducts(
+                    [...newProducts,
+                    ]
+                )
+            }
+        })
     }
 
     function removeProductFromList(product: Product) {
         document.getElementById(product.id)?.remove()
-    }
-
-    function removeQuantityFromList(product: Product) {
-        if (product.quantity > 0) {
-            product.quantity--
-        }
     }
 
     function calcPrice(product: Product) {
