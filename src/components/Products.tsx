@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, useState } from 'react';
+
 import { Product } from '../models/Product';
 
 type Props = {
@@ -72,37 +73,41 @@ export const Products = ({ products, setProducts }: Props) => {
                 <tbody>
                     {products.map((product, index) => {
                         return (
-                            <tr key={index} id={product.id} className='theme-c'>
-                                <td width="200px">
-                                    <h2 >
-                                        {product.name}
-                                    </h2>
-                                    <div className='break'></div>
-                                    <button onClick={() => removeProductFromList(product)}>🗑️</button>
-                                </td>
-                                <td width="100px">
-                                    <h3 id={product.id + "bulkDiscount"}>
-                                        {calcPrice(product) + " " + product.currency}
-                                    </h3>
-                                </td>
-                                <td>
-                                    <button onClick={() => addQuantityToList(product)}>+</button>
-                                </td>
-                                <td width="50px">
-                                    <center>
-                                        <h4 id={product.id + "quantity"}>
-                                            {product.quantity}
-                                        </h4>
-                                    </center>
-                                </td>
-                                <td>
-                                    <button onClick={() => removeQuantityFromList(product)}>-</button>
-                                </td>
-                            </tr>
+                            ProductRow(index, product, removeProductFromList, calcPrice, addQuantityToList, removeQuantityFromList)
                         )
                     })}
                 </tbody>
             </table>
         </div>
     )
+}
+
+export function ProductRow(index: number, product: Product, removeProductFromList: (product: Product) => void, calcPrice: (product: Product) => number, addQuantityToList: (product: Product) => void, removeQuantityFromList: (product: Product) => void): JSX.Element {
+    return <tr key={index} id={product.id} className='theme-c'>
+        <td width="200px">
+            <h2>
+                {product.name}
+            </h2>
+            <div className='break'></div>
+            <button onClick={() => removeProductFromList(product)}>🗑️</button>
+        </td>
+        <td width="100px">
+            <h3 id={product.id + "bulkDiscount"}>
+                {calcPrice(product) + " " + product.currency}
+            </h3>
+        </td>
+        <td>
+            <button onClick={() => addQuantityToList(product)}>+</button>
+        </td>
+        <td width="50px">
+            <center>
+                <h4 id={product.id + "quantity"}>
+                    {product.quantity}
+                </h4>
+            </center>
+        </td>
+        <td>
+            <button onClick={() => removeQuantityFromList(product)}>-</button>
+        </td>
+    </tr>;
 }
