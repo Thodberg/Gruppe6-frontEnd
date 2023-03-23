@@ -56,7 +56,7 @@ export const Products = ({ products, setProducts }: Props) => {
     }
 
     function removeProductFromList(product: Product) {
-        // hallo
+        // hallo der
         document.getElementById(product.id)?.remove()
     }
 
