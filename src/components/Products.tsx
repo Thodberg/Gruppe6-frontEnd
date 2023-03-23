@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
+
 import { Product } from '../models/Product';
 
 type Props = {
@@ -55,6 +56,7 @@ export const Products = ({ products, setProducts }: Props) => {
     }
 
     function removeProductFromList(product: Product) {
+        // hallo
         document.getElementById(product.id)?.remove()
     }
 
