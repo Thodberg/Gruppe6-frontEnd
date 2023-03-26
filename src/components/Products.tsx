@@ -55,8 +55,23 @@ export const Products = ({ products, setProducts }: Props) => {
         })
     }
 
+    function removeAllProductFromList(product: Product) {
+        let newProducts = [...products,
+        ]
+        newProducts.find((e) => {
+            if (e.id === product.id) {
+            e.quantity = 0;
+            removeProductFromList(product)
+                setProducts(
+                    [...newProducts,
+                    ]
+                )
+            }
+        })
+    }
+
     function removeProductFromList(product: Product) {
-        // hallo
+        product.price == 0
         document.getElementById(product.id)?.remove()
     }
 
@@ -87,7 +102,7 @@ export const Products = ({ products, setProducts }: Props) => {
                                         {product.name}
                                     </h2>
                                     <div className='break'></div>
-                                    <button onClick={() => removeProductFromList(product)}>🗑️</button>
+                                    <button onClick={() => removeAllProductFromList(product)}>🗑️</button>
                                 </td>
                                 <td width="100px">
                                     <h3 id={product.id + "bulkDiscount"}>
