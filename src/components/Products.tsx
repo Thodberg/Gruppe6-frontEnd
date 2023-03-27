@@ -10,7 +10,14 @@ type Props = {
 export const Products = ({ products, setProducts }: Props) => {
 
     //TODO add nudging to buy more to get a rebate
+    function buyMore(product: Product){
+        if (product.quantity < product.rebateQuantity){
+            console.log('Køb %product.rebateQuantity og spar 10%')
+        } else{
+            console.log('Du har %product.rebateQuantity eller mere og spare 10%')
+        }
 
+    }
     function addProductToList(product: Product) {
         setProducts(
             [...products,
