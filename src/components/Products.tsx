@@ -11,13 +11,18 @@ type Props = {
 export const Products = ({ products, setProducts }: Props) => {
 
     //TODO add nudging to buy more to get a rebate
-    function buyMore(product: Product){
+    function buyMore(product: Product) {
         if (product.quantity < product.rebateQuantity){
-            console.log('Køb %product.rebateQuantity og spar 10%')
+            return (product.rebateQuantity)
         } else{
-            console.log('Du har %product.rebateQuantity eller mere og spare 10%')
+            return (product.rebateQuantity)
         }
 
+    }
+    function moreExpensiveOptions (product: Product): void{
+        if(product.upsellProductId.length > 0){
+            console.log ('Der er et produkt i bedre kvalitet som minder om til ${product.price}, er du intereseret?')
+        }
     }
     function addProductToList(product: Product) {
         setProducts(
@@ -98,11 +103,15 @@ export const Products = ({ products, setProducts }: Props) => {
                                     </h2>
                                     <div className='break'></div>
                                     <button onClick={() => removeProductFromList(product)}>🗑️</button>
+                                   
                                 </td>
                                 <td width="100px">
                                     <h3 id={product.id + "bulkDiscount"}>
                                         {calcPrice(product) + " " + product.currency}
                                     </h3>
+                                    <p>
+                                     Køb {product.rebateQuantity} produkter og få 10%
+                                    </p> 
                                 </td>
                                 <td>
                                     <button onClick={() => addQuantityToList(product)}>+</button>
@@ -117,6 +126,7 @@ export const Products = ({ products, setProducts }: Props) => {
                                 <td>
                                     <button onClick={() => removeQuantityFromList(product)}>-</button>
                                 </td>
+                                
                             </tr>
                         )
                     })}
