@@ -8,5 +8,4 @@ export interface Product {
     rebatePercent: number,
     upsellProductId: string,
     img: string
-
 }
