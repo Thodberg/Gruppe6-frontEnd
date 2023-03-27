@@ -1,7 +1,6 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
+
 import { Product } from '../models/Product';
-import MockData from '../mockData.json'
-import { Checkout } from "./Checkout";
 
 type Props = {
     products: Product[];
@@ -34,45 +33,42 @@ export const Products = ({ products, setProducts }: Props) => {
     }
 
     function addQuantityToList(product: Product) {
-        {
-            products.length ? (
-                products.find((e) => {
-                    if (e.id === product.id) {
-                        e.quantity++;
-                        setProducts(
-                            [...products,
-                            ]
-                        )
-                    }
-                })
-            ) : (
-                addProductToList(product)
-            )
-        }
-    }
-
-    function removeProductFromList(product: Product) {
-        document.getElementById(product.id)?.remove()
-    }
-
-    function removeQuantityFromList(product: Product) {
-        if (product.quantity > 0) {
-            product.quantity--
-        }
-
-        if (product.quantity > 1) {
-            products.find((e) => {
+        let newProducts = [...products,
+        ]
+        newProducts.length ? (
+            newProducts.find((e) => {
                 if (e.id === product.id) {
-                    e.quantity--;
+                    e.quantity++;
                     setProducts(
-                        [...products,
+                        [...newProducts,
                         ]
                     )
                 }
             })
-        } else {
-            removeProductFromList(product)
-        }
+        ) : (
+            addProductToList(product)
+        )
+    }
+
+    function removeQuantityFromList(product: Product) {
+        let newProducts = [...products,
+        ]
+        newProducts.find((e) => {
+            if (e.id === product.id) {
+                e.quantity--;
+                if (e.quantity < 1) {
+                    removeProductFromList(product)
+                }
+                setProducts(
+                    [...newProducts,
+                    ]
+                )
+            }
+        })
+    }
+
+    function removeProductFromList(product: Product) {
+        document.getElementById(product.id)?.remove()
     }
 
     function calcPrice(product: Product) {
@@ -135,5 +131,3 @@ export const Products = ({ products, setProducts }: Props) => {
         </div>
     )
 }
-
-

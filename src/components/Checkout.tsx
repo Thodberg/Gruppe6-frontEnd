@@ -1,7 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Product } from '../models/Product';
-
-/*Here is the checkout box with its functionality. */
 
 //replace with orders
 
@@ -34,10 +32,10 @@ type Props = {
     products: Product[];
 }
 
-// TODO import Basket under titel once its finished 
 export const Checkout = ({ products }: Props) => {
     const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
     const [currentDeliver, setCurrentDeliver] = useState<string>('');
+
 
     //need to remove centering once its included in css
     function Title() {
@@ -47,23 +45,27 @@ export const Checkout = ({ products }: Props) => {
     }
 
     function Subtotal({ products }: Props) {
-        let productPrice = 0
-        products.forEach(element => {
-            productPrice += element.price;
-        });
-        let subtotal = "Subtotal: " + productPrice + " DKK";
+        const [subtotal, setSubtotal] = useState<string>('');
+        useEffect(() => {
+            let productPrice = 0
+            products.forEach(element => {
+                productPrice += element.price * element.quantity;
+            });
+            setSubtotal("Subtotal: " + productPrice + " DKK");
+        }, [products])
+
         return (
             <div className='theme-c'><h2>{subtotal}</h2></div>
         )
     }
 
-    function DeliveryCost({ products }: Props) {
+    function DeliveryCost() {
         return (
             <div className='theme-c'><h2>{"Levering: " + deliveryPrice + " DKK"}</h2></div>
         )
     }
 
-    function DeliveryMethods({ products }: Props) {
+    function DeliveryMethods() {
         function selectRadio(price: number, name: string) {
             setDeliveryPrice(price);
             setCurrentDeliver(name)
@@ -111,8 +113,8 @@ export const Checkout = ({ products }: Props) => {
         <div className='theme-checkout'>
             <Title />
             <Subtotal products={products} />
-            <DeliveryCost products={products} />
-            <DeliveryMethods products={products} />
+            <DeliveryCost />
+            <DeliveryMethods />
             <Total products={products} />
         </div>
     )
