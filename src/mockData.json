@@ -7,7 +7,8 @@
       "quantity": 2,
       "rebateQuantity": 3,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img": "src/assets/cactus.png"
     },
     {
       "id": "pink-large-flowered-rose",

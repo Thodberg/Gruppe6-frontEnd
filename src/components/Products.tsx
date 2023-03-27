@@ -122,7 +122,10 @@ export const Products = ({ products, setProducts }: Props) => {
                                 <td>
                                     <button onClick={() => removeQuantityFromList(product)}>-</button>
                                 </td>
-                                
+                               <td>
+                                <img src='product.img'>
+                                </img>
+                               </td>
                             </tr>
                         )
                     })}
