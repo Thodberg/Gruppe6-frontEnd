@@ -92,7 +92,7 @@ export const Products = ({ products, setProducts }: Props) => {
                 <tbody>
                     {products.map((product, index) => {
                         return (
-                            <tr key={index} id={product.id} className='theme-c'>
+                            <tr key={index} id={product.id} className='theme-c' >
                                 <td width="200px">
                                     <h2 >
                                         {product.name}
@@ -123,9 +123,9 @@ export const Products = ({ products, setProducts }: Props) => {
                                     <button onClick={() => removeQuantityFromList(product)}>-</button>
                                 </td>
                                <td>
-                                <img src='product.img'>
+                                <img src='product.img' alt='Product'>
                                 </img>
-                               </td>
+                               </td> 
                             </tr>
                         )
                     })}

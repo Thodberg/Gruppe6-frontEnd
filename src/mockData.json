@@ -8,7 +8,7 @@
       "rebateQuantity": 3,
       "rebatePercent": 10,
       "upsellProductId": "",
-      "img": "src/assets/cactus.png"
+      "img": "redRose.webp"
     },
     {
       "id": "pink-large-flowered-rose",
@@ -18,7 +18,8 @@
       "quantity": 1,
       "rebateQuantity": 2,
       "rebatePercent": 25,
-      "upsellProductId": "vitamin-c-depot-500-250"
+      "upsellProductId": "vitamin-c-depot-500-250",
+      "img": ""
     },
     {
       "id": "yellow-english-rose",
@@ -28,7 +29,8 @@
       "quantity": 1,
       "rebateQuantity": 3,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "pottingSoil-40L",
@@ -38,7 +40,8 @@
       "quantity": 2,
       "rebateQuantity": 5,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "pottingSoil-18L",
@@ -48,7 +51,8 @@
       "quantity": 1,
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": "pottingSoil-40L"
+      "upsellProductId": "pottingSoil-40L",
+      "img":""
     },
     {
       "id": "lemonTree-H70",
@@ -58,7 +62,8 @@
       "quantity": 2,
       "rebateQuantity": 2,
       "rebatePercent": 50,
-      "upsellProductId": "lemonTree-H90"
+      "upsellProductId": "lemonTree-H90",
+      "img": ""
     },
     {
       "id": "lemonTree-H90",
@@ -68,7 +73,8 @@
       "quantity": 1,
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     
     {
@@ -79,7 +85,8 @@
       "quantity": 1,
       "rebateQuantity": 3,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "Pink-QueenKalanchoe",
@@ -89,7 +96,8 @@
       "quantity": 1,
       "rebateQuantity": 3,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "ZantedeschiaMorningSun-orange",
@@ -99,7 +107,8 @@
       "quantity": 1,
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "KalanchoeMagicBell",
@@ -109,7 +118,8 @@
       "quantity": 1,
       "rebateQuantity": 2,
       "rebatePercent": 20,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "yellowOrkidé",
@@ -139,7 +149,8 @@
       "quantity": 1,
       "rebateQuantity": 2,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "bayonetPlant9",
@@ -149,7 +160,8 @@
       "quantity": 1,
       "rebateQuantity": 2,
       "rebatePercent": 10,
-      "upsellProductId": "bayonetPlant11"
+      "upsellProductId": "bayonetPlant11",
+      "img":""
     },
     {
       "id": "bayonetPlant11",
@@ -159,7 +171,8 @@
       "quantity": 1,
       "rebateQuantity": 2,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img": ""
     },
     {
       "id": "umbrellaTree",
@@ -169,7 +182,8 @@
       "quantity": 1,
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "livingRoomAsh",
@@ -179,7 +193,8 @@
       "quantity": 1,
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "EcheveriaGibbiflora",
@@ -189,7 +204,8 @@
       "quantity": 1,
       "rebateQuantity": 5,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "EcheveriaAgavoides",
@@ -199,7 +215,8 @@
       "quantity": 3,
       "rebateQuantity": 5,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "pearlsOnString",
@@ -209,7 +226,8 @@
       "quantity": 4,
       "rebateQuantity": 5,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "", 
+      "img":""
     },
     {
       "id": "cherriesSweetheart",
@@ -219,7 +237,8 @@
       "quantity": 1,
       "rebateQuantity": 4,
       "rebatePercent": 25,
-      "upsellProductId": "cherriesSunburst"
+      "upsellProductId": "cherriesSunburst",
+      "img":""
     },
     {
       "id": "cherriesSunburst",
@@ -229,7 +248,8 @@
       "quantity": 1,
       "rebateQuantity": 2,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "redIngridMarie",
@@ -239,7 +259,8 @@
       "quantity": 1,
       "rebateQuantity": 4,
       "rebatePercent": 25,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "rosette",
@@ -249,7 +270,8 @@
       "quantity": 1,
       "rebateQuantity": 4,
       "rebatePercent": 25,
-      "upsellProductId": "redIngridMarie"
+      "upsellProductId": "redIngridMarie",
+      "img":""
     },
     {
       "id": "plantSpade-2C",
@@ -259,7 +281,8 @@
       "quantity": 1,
       "rebateQuantity": 2,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "metalPlantSpade",
@@ -269,7 +292,8 @@
       "quantity": 1,
       "rebateQuantity": 4,
       "rebatePercent": 25,
-      "upsellProductId": "plantSpade-2C"
+      "upsellProductId": "plantSpade-2C",
+      "img":""
     },
     {
       "id": "softPlantSpade",
@@ -279,7 +303,8 @@
       "quantity": 1,
       "rebateQuantity": 4,
       "rebatePercent": 25,
-      "upsellProductId": "plantSpade-2C"
+      "upsellProductId": "plantSpade-2C",
+      "img":""
     },
     {
       "id": "womanGloves",
@@ -289,7 +314,8 @@
       "quantity": 1,
       "rebateQuantity": 2,
       "rebatePercent": 10,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "pinkGloves",
@@ -299,7 +325,8 @@
       "quantity": 2,
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     },
     {
       "id": "blueGloves",
@@ -309,6 +336,7 @@
       "quantity": 1,
       "rebateQuantity": 0,
       "rebatePercent": 0,
-      "upsellProductId": ""
+      "upsellProductId": "",
+      "img":""
     }
   ]
