@@ -12,7 +12,7 @@ describe(App.name, () => {
     expect(screen.getByText("Subtotal")).toBeInTheDocument();
     expect(screen.getByText("Levering")).toBeInTheDocument();
     expect(screen.getByText("Ordreoversigt")).toBeInTheDocument();
-    
+
   });
 });
 
@@ -26,6 +26,6 @@ describe(App.name, () => {
     expect(screen.getByText("Subtotal")).toBeInTheDocument();
     expect(screen.getByText("Levering")).toBeInTheDocument();
     expect(screen.getByText("Ordreoversigt")).toBeInTheDocument();
-    
+
   });
 });
