@@ -103,7 +103,7 @@ export const Products = ({ products, setProducts }: Props) => {
                                 </td>
                                 <td width="100px">
                                     <h3 id={product.id + "bulkDiscount"}>
-                                        {calcPrice(product) + " " + product.currency}
+                                        {(Math.round(calcPrice(product) * 100) / 100) + " " + product.currency}
                                     </h3>
                                     <p>
                                      Køb {product.rebateQuantity} produkter og få 10%
