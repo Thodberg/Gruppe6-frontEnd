@@ -35,7 +35,7 @@ type Props = {
 export const Checkout = ({ products }: Props) => {
     const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
     const [currentDeliver, setCurrentDeliver] = useState<string>('');
-
+    const [productPrice, setProductPrice] = useState<number>(0);
 
     //need to remove centering once its included in css
     function Title() {
@@ -44,6 +44,7 @@ export const Checkout = ({ products }: Props) => {
         )
     }
 
+    //need to remove useEffect to avoid jumping when recalculating
     function Subtotal({ products }: Props) {
         const [subtotal, setSubtotal] = useState<string>('');
         useEffect(() => {
@@ -51,6 +52,7 @@ export const Checkout = ({ products }: Props) => {
             products.forEach(element => {
                 productPrice += element.price * element.quantity;
             });
+            setProductPrice(productPrice)
             setSubtotal("Subtotal: " + productPrice + " DKK");
         }, [products])
 
@@ -98,10 +100,6 @@ export const Checkout = ({ products }: Props) => {
 
     //TODO go to DeliveryInformation page when onClick is activated
     function Total({ products }: Props) {
-        let productPrice = 0
-        products.forEach(element => {
-            productPrice += element.price;
-        });
         let totalPrice = productPrice + deliveryPrice
         let total = "Total: " + totalPrice + " DKK"
         return (

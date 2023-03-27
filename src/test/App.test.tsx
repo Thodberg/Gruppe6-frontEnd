@@ -16,16 +16,3 @@ describe(App.name, () => {
   });
 });
 
-describe(App.name, () => {
-  it("should render", () => {
-    render(<App />);
-    //expect(screen.getByLabelText("Artist name:")).toBeInTheDocument();
-    //hallo
-    expect(screen.getByText("Planteland")).toBeInTheDocument();
-    expect(screen.getByText("Ordreoversigt")).toBeInTheDocument();
-    expect(screen.getByText("Subtotal")).toBeInTheDocument();
-    expect(screen.getByText("Levering")).toBeInTheDocument();
-    expect(screen.getByText("Ordreoversigt")).toBeInTheDocument();
-
-  });
-});
