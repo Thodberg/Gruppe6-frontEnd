@@ -12,11 +12,16 @@ export const Products = ({ products, setProducts }: Props) => {
     //TODO add nudging to buy more to get a rebate
     function buyMore(product: Product) {
         if (product.quantity < product.rebateQuantity) {
-            console.log('Køb %product.rebateQuantity og spar 10%')
+            return (product.rebateQuantity)
         } else {
-            console.log('Du har %product.rebateQuantity eller mere og spare 10%')
+            return (product.rebateQuantity)
         }
 
+    }
+    function moreExpensiveOptions(product: Product): void {
+        if (product.upsellProductId.length > 0) {
+            console.log('Der er et produkt i bedre kvalitet som minder om til ${product.price}, er du intereseret?')
+        }
     }
     function addProductToList(product: Product) {
         setProducts(
@@ -63,7 +68,6 @@ export const Products = ({ products, setProducts }: Props) => {
     }
 
     function removeProductFromList(product: Product) {
-        // hallo
         document.getElementById(product.id)?.remove()
     }
 
@@ -88,41 +92,45 @@ export const Products = ({ products, setProducts }: Props) => {
                 <tbody>
                     {products.map((product, index) => {
                         return (
-                            ProductRow(index, product, removeProductFromList, calcPrice, addQuantityToList, removeQuantityFromList)
+                            <tr key={index} id={product.id} className='theme-c' >
+                                <td width="200px">
+                                    <h2 >
+                                        {product.name}
+                                    </h2>
+                                    <div className='break'></div>
+                                    <button onClick={() => removeProductFromList(product)}>🗑️</button>
+
+                                </td>
+                                <td width="100px">
+                                    <h3 id={product.id + "bulkDiscount"}>
+                                        {(Math.round(calcPrice(product) * 100) / 100) + " " + product.currency}
+                                    </h3>
+                                    <p>
+                                        Køb {product.rebateQuantity} produkter og få 10%
+                                    </p>
+                                </td>
+                                <td>
+                                    <button onClick={() => addQuantityToList(product)}>+</button>
+                                </td>
+                                <td width="50px">
+                                    <center>
+                                        <h4 id={product.id + "quantity"}>
+                                            {product.quantity}
+                                        </h4>
+                                    </center>
+                                </td>
+                                <td>
+                                    <button onClick={() => removeQuantityFromList(product)}>-</button>
+                                </td>
+                                <td>
+                                    <img src='product.img' alt='Product'>
+                                    </img>
+                                </td>
+                            </tr>
                         )
                     })}
                 </tbody>
             </table>
         </div>
     )
-}
-
-export function ProductRow(index: number, product: Product, removeProductFromList: (product: Product) => void, calcPrice: (product: Product) => number, addQuantityToList: (product: Product) => void, removeQuantityFromList: (product: Product) => void): JSX.Element {
-    return <tr key={index} id={product.id} className='theme-c'>
-        <td width="200px">
-            <h2>
-                {product.name}
-            </h2>
-            <div className='break'></div>
-            <button onClick={() => removeProductFromList(product)}>🗑️</button>
-        </td>
-        <td width="100px">
-            <h3 id={product.id + "bulkDiscount"}>
-                {calcPrice(product) + " " + product.currency}
-            </h3>
-        </td>
-        <td>
-            <button onClick={() => addQuantityToList(product)}>+</button>
-        </td>
-        <td width="50px">
-            <center>
-                <h4 id={product.id + "quantity"}>
-                    {product.quantity}
-                </h4>
-            </center>
-        </td>
-        <td>
-            <button onClick={() => removeQuantityFromList(product)}>-</button>
-        </td>
-    </tr>;
 }

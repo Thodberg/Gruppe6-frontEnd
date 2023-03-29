@@ -53,7 +53,7 @@ export const Checkout = ({ products }: Props) => {
                 productPrice += element.price * element.quantity;
             });
             setProductPrice(productPrice)
-            setSubtotal("Subtotal: " + productPrice + " DKK");
+            setSubtotal("Subtotal: " + (Math.round(productPrice * 100) / 100) + " DKK");
         }, [products])
 
         return (
@@ -74,7 +74,6 @@ export const Checkout = ({ products }: Props) => {
         }
 
         return (
-
             <form>
                 <fieldset>
                     {DELIVERYCOSTS.map((method) => {
@@ -100,7 +99,8 @@ export const Checkout = ({ products }: Props) => {
 
     //TODO go to DeliveryInformation page when onClick is activated
     function Total({ products }: Props) {
-        let totalPrice = productPrice + deliveryPrice
+
+        let totalPrice = (Math.round(productPrice * 100) / 100) + deliveryPrice
         let total = "Total: " + totalPrice + " DKK"
         return (
             <div><h1>{total}</h1><center><button onClick={() => { }}>Til kassen</button></center></div>

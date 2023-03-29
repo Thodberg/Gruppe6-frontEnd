@@ -6,6 +6,6 @@ export interface Product {
     quantity: number,
     rebateQuantity: number,
     rebatePercent: number,
-    upsellProductId: string
-
+    upsellProductId: string,
+    img: string
 }
