@@ -92,7 +92,7 @@ export const Products = ({ products, setProducts }: Props) => {
                 <tbody>
                     {products.map((product, index) => {
                         return (
-                            <tr key={index} id={product.id} className='theme-c'>
+                            <tr key={index} id={product.id} className='theme-c' >
                                 <td width="200px">
                                     <h2 >
                                         {product.name}
@@ -103,7 +103,7 @@ export const Products = ({ products, setProducts }: Props) => {
                                 </td>
                                 <td width="100px">
                                     <h3 id={product.id + "bulkDiscount"}>
-                                        {calcPrice(product) + " " + product.currency}
+                                        {(Math.round(calcPrice(product) * 100) / 100) + " " + product.currency}
                                     </h3>
                                     <p>
                                      Køb {product.rebateQuantity} produkter og få 10%
@@ -122,7 +122,10 @@ export const Products = ({ products, setProducts }: Props) => {
                                 <td>
                                     <button onClick={() => removeQuantityFromList(product)}>-</button>
                                 </td>
-                                
+                               <td>
+                                <img src='product.img' alt='Product'>
+                                </img>
+                               </td> 
                             </tr>
                         )
                     })}
