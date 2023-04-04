@@ -45,5 +45,7 @@ describe('Rendering', () => {
     })
 })
 
+//TODO make test for correct calculations
+
 
 

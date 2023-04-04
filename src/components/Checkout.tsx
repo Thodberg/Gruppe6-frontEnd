@@ -98,7 +98,6 @@ export const Checkout = ({ products }: Props) => {
         )
     }
 
-    //TODO go to DeliveryInformation page when onClick is activated
     function Total({ products }: Props) {
         let totalPrice = (Math.round(productPrice * 100) / 100) + deliveryPrice
         let total = "Total: " + totalPrice + " DKK"
