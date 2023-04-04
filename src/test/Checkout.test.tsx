@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 
 import { Checkout } from "../components/Checkout";
@@ -13,7 +13,6 @@ const products = [
         "rebateQuantity": 3,
         "rebatePercent": 10,
         "upsellProductId": "",
-        // "img": "redRose.webp"
     },
     {
         "id": "pink-large-flowered-rose",
@@ -24,7 +23,6 @@ const products = [
         "rebateQuantity": 2,
         "rebatePercent": 25,
         "upsellProductId": "vitamin-c-depot-500-250",
-        // "img": ""
     },
     {
         "id": "yellow-english-rose",
@@ -35,7 +33,6 @@ const products = [
         "rebateQuantity": 3,
         "rebatePercent": 10,
         "upsellProductId": "",
-        //"img": ""
     }
 ];
 
@@ -46,13 +43,7 @@ describe('Rendering', () => {
         expect(products).toHaveLength(3);
         expect(screen.getByText("Ordreoversigt")).toBeInTheDocument();
     })
-
-    it('calculate correct price', () => {
-        render(<Checkout products={products} />);
-
-
-
-    })
 })
+
 
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../models/Product';
+import { Link } from 'react-router-dom';
 
 //replace with orders
 
@@ -102,7 +103,14 @@ export const Checkout = ({ products }: Props) => {
         let totalPrice = (Math.round(productPrice * 100) / 100) + deliveryPrice
         let total = "Total: " + totalPrice + " DKK"
         return (
-            <div><h1>{total}</h1><center><button onClick={() => { }}>Til kassen</button></center></div>
+            <div>
+                <h1>{total}</h1>
+                <center>
+                    <Link to="/kassen">
+                        <button>Til kassen</button>
+                    </Link>
+                </center>
+            </div>
         )
     }
 
