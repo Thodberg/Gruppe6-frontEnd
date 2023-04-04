@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Products } from "../components/Products";
 import { Product } from "../models/Product";
-import MockData from "../mockData.json"
+import MockData from "../mockData2.json"
 import { Checkout } from "../components/Checkout";
 
 export const Home = () => {
