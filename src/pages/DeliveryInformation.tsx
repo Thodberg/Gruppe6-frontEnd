@@ -7,15 +7,15 @@ export const DeliveryInformation = () => {
     return (
         <div>
             <h4>
-                Vi mangler kun det sidste
+                Vi mangler kun de sidste informationer
             </h4>
 
             <div>
                 <AddressForms />
-            </div>¨
+            </div>
             <br />
             <div id='dialog-window'>
-                <div id='scrollable-content'>
+                <div id='scrollable-content' >
                     En masse vilkår for køb kan puttes her. Nu bare dummy tekst så man kan se scrolle virker.
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, earum facere. Eum deserunt esse necessitatibus ipsum doloremque quos expedita odit porro quisquam veritatis deleniti veniam, omnis voluptate repellat ipsam explicabo.</p>
                     <label>
