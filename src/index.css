@@ -140,6 +140,14 @@ table {
   color: #000000;
 }
 
+.theme-navBar {
+  display: flex;
+  margin-left: 5px;
+  color: #fff;
+  list-style: none;
+  justify-content: space-around;
+}
+
 /*TODO add darkmode*/
 @media (prefers-color-scheme: dark) {
   .theme-a.adaptive {

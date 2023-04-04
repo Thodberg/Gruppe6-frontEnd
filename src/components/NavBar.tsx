@@ -6,7 +6,7 @@ export const NavBar = () => {
             <h1>
                 <center>Planteland</center>
             </h1>
-            <ul >
+            <ul className="theme-navBar">
                 <li>
                     <Link to="/">Indkøbskurv</Link>
                 </li>
@@ -14,9 +14,6 @@ export const NavBar = () => {
                     <Link to="/kassen">Kassen</Link>
                 </li>
             </ ul>
-
-
-
         </div>
     )
 }
