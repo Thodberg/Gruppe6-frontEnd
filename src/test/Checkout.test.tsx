@@ -6,17 +6,18 @@ import { Checkout } from "../components/Checkout";
 import exp from "constants";
 
 describe('Sum', () => {
-    it('renders the correct sum', () => {
+    it('renders the correct length', () => {
         const products = [
             {
                 "id": "red-creeping-rose",
                 "name": "Rød Slyngrose",
                 "price": 169.00,
                 "currency": "DKK",
-                "quantity": 1,
+                "quantity": 2,
                 "rebateQuantity": 3,
                 "rebatePercent": 10,
-                "upsellProductId": ""
+                "upsellProductId": "",
+                "img": "redRose.webp"
             },
             {
                 "id": "pink-large-flowered-rose",
@@ -26,13 +27,24 @@ describe('Sum', () => {
                 "quantity": 1,
                 "rebateQuantity": 2,
                 "rebatePercent": 25,
-                "upsellProductId": "vitamin-c-depot-500-250"
+                "upsellProductId": "vitamin-c-depot-500-250",
+                "img": ""
             },
+            {
+                "id": "yellow-english-rose",
+                "name": "Gul Engelsk rose",
+                "price": 169.00,
+                "currency": "DKK",
+                "quantity": 1,
+                "rebateQuantity": 3,
+                "rebatePercent": 10,
+                "upsellProductId": "",
+                "img": ""
+            }
         ];
         render(<Checkout products={products} />);
 
-        expect(products).toHaveLength(2);
+        expect(products).toHaveLength(3);
         expect(screen.getByText("Ordreoversigt")).toBeInTheDocument();
-
     })
 })
