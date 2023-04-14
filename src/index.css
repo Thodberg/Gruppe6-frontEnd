@@ -19,6 +19,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -39,7 +40,7 @@ h4 {
 body {
   margin: 0;
   padding: 0;
-  display:  flex;
+  display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
@@ -52,14 +53,14 @@ h1 {
 }
 
 tr {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
 
 td {
-  padding-top:10px;
-  padding-bottom:10px;
-  padding-right:10px; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
 }
 
 table {
@@ -73,6 +74,7 @@ table {
   background: #D9F4B7;
   color: #2C4A1D;
 }
+
 /*TODO add darkmode*/
 @media (prefers-color-scheme: dark) {
   .theme-a.adaptive {
@@ -89,6 +91,7 @@ table {
   color: #000000;
   padding: 10px;
 }
+
 /*TODO add darkmode*/
 @media (prefers-color-scheme: dark) {
   .theme-a.adaptive {
@@ -104,6 +107,7 @@ table {
   background: #EBF6D8;
   color: #000000;
 }
+
 /*TODO add darkmode*/
 @media (prefers-color-scheme: dark) {
   .theme-a.adaptive {
@@ -119,7 +123,7 @@ table {
   color: #2C4A1D;
   position: fixed;
   right: 0;
-  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.4);
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4);
   transition: 0.3s;
   margin-right: 25px;
   padding-bottom: 10px;
@@ -135,6 +139,15 @@ table {
   background: #EBF6D8;
   color: #000000;
 }
+
+.theme-navBar {
+  display: flex;
+  margin-left: 5px;
+  color: #fff;
+  list-style: none;
+  justify-content: space-around;
+}
+
 /*TODO add darkmode*/
 @media (prefers-color-scheme: dark) {
   .theme-a.adaptive {
@@ -155,9 +168,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -168,9 +183,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
@@ -186,4 +203,19 @@ div.topbar {
 
 .break {
   width: 100%;
+}
+
+#dialog-window {
+  margin: 5;
+  height: 20px;
+  width: 500px;
+  border: 1px black solid;
+  margin-right: 25px;
+  padding-bottom: 10px;
+}
+
+#scrollable-content {
+  height: 50px;
+  overflow-y: auto;
+  background-color: #ffffff;
 }

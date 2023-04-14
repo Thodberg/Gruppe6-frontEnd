@@ -1,27 +1,21 @@
-import { useState } from "react";
-import { Checkout } from "./components/Checkout";
-import { Products } from "./components/Products";
-import { AddressForms } from "./components/AdressForms";
-import { Topbar } from "./components/Topbar";
-import MockData from "./mockData.json"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { NavBar } from "./components/NavBar";
 import { Product } from './models/Product';
-
-type Props = {
-  products: Product[];
-}
+import { DeliveryInformation } from "./pages/DeliveryInformation";
+import { Home } from "./pages/Home";
 
 export default function App() {
-  const [products, setProducts] = useState<Product[]>(MockData);
 
   return (
     <body className='theme-a'>
-      <Topbar />
-      <div>
-        <Products products={products} setProducts={setProducts} />
-      </div>
-      <div>
-        <Checkout products={products} />
-      </div>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Home />}>
+          </Route>
+          <Route path='/kassen' element={<DeliveryInformation />} />
+        </Routes>
+      </BrowserRouter>
     </body>
   );
 }

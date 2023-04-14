@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 
 import { Product } from '../models/Product';
 
@@ -11,16 +11,16 @@ export const Products = ({ products, setProducts }: Props) => {
 
     //TODO add nudging to buy more to get a rebate
     function buyMore(product: Product) {
-        if (product.quantity < product.rebateQuantity){
+        if (product.quantity < product.rebateQuantity) {
             return (product.rebateQuantity)
-        } else{
+        } else {
             return (product.rebateQuantity)
         }
 
     }
-    function moreExpensiveOptions (product: Product): void{
-        if(product.upsellProductId.length > 0){
-            console.log ('Der er et produkt i bedre kvalitet som minder om til ${product.price}, er du intereseret?')
+    function moreExpensiveOptions(product: Product): void {
+        if (product.upsellProductId.length > 0) {
+            console.log('Der er et produkt i bedre kvalitet som minder om til ${product.price}, er du intereseret?')
         }
     }
     function addProductToList(product: Product) {
@@ -99,15 +99,15 @@ export const Products = ({ products, setProducts }: Props) => {
                                     </h2>
                                     <div className='break'></div>
                                     <button onClick={() => removeProductFromList(product)}>🗑️</button>
-                                   
+
                                 </td>
                                 <td width="100px">
                                     <h3 id={product.id + "bulkDiscount"}>
                                         {(Math.round(calcPrice(product) * 100) / 100) + " " + product.currency}
                                     </h3>
                                     <p>
-                                     Køb {product.rebateQuantity} produkter og få 10%
-                                    </p> 
+                                        Køb {product.rebateQuantity} produkter og få 10%
+                                    </p>
                                 </td>
                                 <td>
                                     <button onClick={() => addQuantityToList(product)}>+</button>
@@ -122,10 +122,10 @@ export const Products = ({ products, setProducts }: Props) => {
                                 <td>
                                     <button onClick={() => removeQuantityFromList(product)}>-</button>
                                 </td>
-                               <td>
-                                <img src='product.img' alt='Product'>
-                                </img>
-                               </td> 
+                                <td>
+                                    <img src='product.img' alt='Product'>
+                                    </img>
+                                </td>
                             </tr>
                         )
                     })}

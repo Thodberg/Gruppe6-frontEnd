@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../models/Product';
+import { Link } from 'react-router-dom';
 
 //replace with orders
 
@@ -35,7 +36,7 @@ type Props = {
 export const Checkout = ({ products }: Props) => {
     const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
     const [currentDeliver, setCurrentDeliver] = useState<string>('');
-
+    const [productPrice, setProductPrice] = useState<number>(0);
 
     //need to remove centering once its included in css
     function Title() {
@@ -44,6 +45,7 @@ export const Checkout = ({ products }: Props) => {
         )
     }
 
+    //need to remove useEffect to avoid jumping when recalculating
     function Subtotal({ products }: Props) {
         const [subtotal, setSubtotal] = useState<string>('');
         useEffect(() => {
@@ -51,6 +53,7 @@ export const Checkout = ({ products }: Props) => {
             products.forEach(element => {
                 productPrice += element.price * element.quantity;
             });
+            setProductPrice(productPrice)
             setSubtotal("Subtotal: " + (Math.round(productPrice * 100) / 100) + " DKK");
         }, [products])
 
@@ -95,16 +98,18 @@ export const Checkout = ({ products }: Props) => {
         )
     }
 
-    //TODO go to DeliveryInformation page when onClick is activated
     function Total({ products }: Props) {
-        let productPrice = 0
-        products.forEach(element => {
-            productPrice += element.price * element.quantity;
-        });
         let totalPrice = (Math.round(productPrice * 100) / 100) + deliveryPrice
         let total = "Total: " + totalPrice + " DKK"
         return (
-            <div><h1>{total}</h1><center><button onClick={() => { }}>Til kassen</button></center></div>
+            <div>
+                <h1>{total}</h1>
+                <center>
+                    <Link to="/kassen">
+                        <button>Til kassen</button>
+                    </Link>
+                </center>
+            </div>
         )
     }
 
