@@ -10,15 +10,20 @@ type Props = {
 export const Products = ({ products, setProducts }: Props) => {
 
     //TODO add nudging to buy more to get a rebate
-    function buyMore(product: Product) {
-        if (product.quantity < product.rebateQuantity) {
-            return (product.rebateQuantity)
-        } else {
-            return (product.rebateQuantity)
-        }
+    function buyMore(product: Product):Product | undefined {
+        return product.((expe))
 
     }
-    function moreExpensiveOptions(product: Product): void {
+    function findExpensiveProduct(products: Product[]): Product | undefined {
+        return products.reduce((expensive, current) => {
+            return current.price > expensive.price ? current : expensive;
+        },
+        products[0])
+    }
+    function moreExpensiveOptions(product: Product): HTMLDivElement{
+        const div = document.createElement("div");
+        div.
+    } {
         if (product.upsellProductId.length > 0) {
             console.log('Der er et produkt i bedre kvalitet som minder om til ${product.price}, er du intereseret?')
         }
