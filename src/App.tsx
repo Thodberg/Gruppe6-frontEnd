@@ -7,6 +7,16 @@ import { Home } from "./pages/Home";
 export default function App() {
 
   return (
+    /**<body className='theme-a'>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Home />}>
+          </Route>
+          <Route path='/kassen' element={<DeliveryInformation />} />
+        </Routes>
+      </BrowserRouter>
+    </body>*/
     <body className='theme-a'>
       <BrowserRouter>
         <NavBar />
