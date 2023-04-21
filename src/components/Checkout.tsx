@@ -115,7 +115,7 @@ export const Checkout = ({ products }: Props) => {
 
     return (
         <div className='theme-checkout'>
-            <Title />
+            <div className='theme-c'><h2><center>Ordreoversigt</center></h2></div>
             <Subtotal products={products} />
             <DeliveryCost />
             <DeliveryMethods />

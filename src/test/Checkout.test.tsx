@@ -13,6 +13,7 @@ const products = [
         "rebateQuantity": 3,
         "rebatePercent": 10,
         "upsellProductId": "",
+        "imageUrl": "",
     },
     {
         "id": "pink-large-flowered-rose",
@@ -23,6 +24,7 @@ const products = [
         "rebateQuantity": 2,
         "rebatePercent": 25,
         "upsellProductId": "vitamin-c-depot-500-250",
+        "imageUrl": "",
     },
     {
         "id": "yellow-english-rose",
@@ -33,6 +35,7 @@ const products = [
         "rebateQuantity": 3,
         "rebatePercent": 10,
         "upsellProductId": "",
+        "imageUrl": "",
     }
 ];
 
@@ -42,6 +45,7 @@ describe('Rendering', () => {
 
         expect(products).toHaveLength(3);
         expect(screen.getByText("Ordreoversigt")).toBeInTheDocument();
+        screen.findByRole('radio',{} )
     })
 })
 
