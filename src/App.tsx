@@ -1,31 +1,63 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { NavBar } from "./components/NavBar";
-import { Product } from './models/Product';
-import { DeliveryInformation } from "./pages/DeliveryInformation";
+//import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
+//import { NavBar } from "./components/NavBar";
+//import { Product } from './models/Product';
+import { DeliveryInformation as Kassen } from "./pages/DeliveryInformation";
 import { Home } from "./pages/Home";
 
-export default function App() {
 
+export default function App() {
+  const[page, setPage] = useState("home");
+  const[count, setCount] = useState(0);
+  const [navigating, setNavigating] = useState(true);
+  /**  UseEffect bruges til at synkronisee noget state inde i applicationen, med
+   med noget state udenfor applikationen, hvilket i dette tilfælde er en
+   state i URL'en 
+   Efter hver rendering køres Effect hooks igen, hvis deres depedencies er blevet ændret*/
+   useEffect(() => {
+    function popstateHandler() {
+      const url = new URLSearchParams(window.location.search);
+      const urlPage = url.get("page");
+      console.log("popstate", { urlPage });
+      setPage(urlPage || "home");
+      setNavigating(true);
+    }
+    addEventListener("popstate", popstateHandler);
+    popstateHandler();
+    return () => {
+      removeEventListener("popstate", popstateHandler);
+    };
+  }, []);
+  useEffect(() => {
+    setNavigating(false);
+  }, [navigating]);
+  function navigate(ev: React.MouseEvent<HTMLAnchorElement>, newPage: string) {
+    ev.preventDefault();
+    history.pushState({}, "", `?page=${newPage}`);// browserens history opdateres
+    dispatchEvent(new PopStateEvent("popstate"));
+  } 
   return (
-    /**<body className='theme-a'>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<Home />}>
-          </Route>
-          <Route path='/kassen' element={<DeliveryInformation />} />
-        </Routes>
-      </BrowserRouter>
-    </body>*/
     <body className='theme-a'>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<Home />}>
-          </Route>
-          <Route path='/kassen' element={<DeliveryInformation />} />
-        </Routes>
-      </BrowserRouter>
+        <div className="topbar">
+            <h1>
+                <center>Planteland</center>
+            </h1>
+            <ul className="theme-navBar">
+                <li>
+                <a onClick={(ev) => navigate(ev, "home")}>Home</a> 
+                
+                </li>
+                <li>
+                <a onClick={(ev) => navigate(ev, "kassen")}>Kassen</a>
+                </li>
+            </ ul>
+        </div>
+        {page === "home" && (          
+            <Home />          
+        )}
+        {page === "kassen" && (          
+            <Kassen />          
+        )}
     </body>
   );
 }

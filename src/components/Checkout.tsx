@@ -104,11 +104,11 @@ export const Checkout = ({ products }: Props) => {
         return (
             <div>
                 <h1>{total}</h1>
-                <center>
+                {/**<center>
                     <Link to="/kassen">
                         <button>Til kassen</button>
                     </Link>
-                </center>
+                </center>*/}
             </div>
         )
     }
