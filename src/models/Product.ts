@@ -7,4 +7,5 @@ export interface Product {
     rebateQuantity: number,
     rebatePercent: number,
     upsellProductId: string,
+    img: string
 }
