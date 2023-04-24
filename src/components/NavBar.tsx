@@ -9,9 +9,11 @@ export const NavBar = () => {
             <ul className="theme-navBar">
                 <li>
                     <Link to="/">Indkøbskurv</Link>
+
                 </li>
                 <li>
                     <Link to="/kassen">Kassen</Link>
+                    
                 </li>
             </ ul>
         </div>

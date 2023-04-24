@@ -123,7 +123,7 @@ export const Products = ({ products, setProducts }: Props) => {
                                     <button onClick={() => removeQuantityFromList(product)}>-</button>
                                 </td>
                                 <td>
-                                    <img src='product.img' alt='Product'>
+                                    <imageUrl>i</imageUrl>
                                     </img>
                                 </td>
                             </tr>

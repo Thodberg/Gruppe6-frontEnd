@@ -7,8 +7,8 @@
     "quantity": 2,
     "rebateQuantity": 3,
     "rebatePercent": 10,
-    "upsellProductId": "",
-    "img": "redRose.webp"
+    "upsellProductId": null,
+    "imageUrl": "https://apopro.dk/Images/d3-vitamin-staerk-kapsler-90-%C2%B5g-kosttilskud-120-stk-214878"
   },
   {
     "id": "pink-large-flowered-rose",
