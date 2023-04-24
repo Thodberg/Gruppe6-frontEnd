@@ -98,7 +98,7 @@ export const Products = ({ products, setProducts }: Props) => {
                                         {product.name}
                                     </h2>
                                     <div className='break'></div>
-                                    <button onClick={() => removeProductFromList(product)}>🗑️</button>
+                                    <button aria-label={product.id + "removeProductFromList"} onClick={() => removeProductFromList(product)}>🗑️</button>
 
                                 </td>
                                 <td width="100px">
@@ -110,17 +110,17 @@ export const Products = ({ products, setProducts }: Props) => {
                                     </p>
                                 </td>
                                 <td>
-                                    <button onClick={() => addQuantityToList(product)}>+</button>
+                                    <button aria-label={product.id + "addQuantityToList"} onClick={() => addQuantityToList(product)}>+</button>
                                 </td>
                                 <td width="50px">
                                     <center>
-                                        <h4 id={product.id + "quantity"}>
+                                        <h4 id={product.id + "quantity"} aria-label={product.id + "quantity"}>
                                             {product.quantity}
                                         </h4>
                                     </center>
                                 </td>
                                 <td>
-                                    <button onClick={() => removeQuantityFromList(product)}>-</button>
+                                    <button aria-label={product.id + "removeQuantityFromList"} onClick={() => removeQuantityFromList(product)}>-</button>
                                 </td>
                                 <td>
                                     <img src='product.img' alt='Product'>
