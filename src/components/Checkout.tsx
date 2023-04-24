@@ -37,30 +37,18 @@ export const Checkout = ({ products }: Props) => {
     const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
     const [currentDeliver, setCurrentDeliver] = useState<string>('');
     const [productPrice, setProductPrice] = useState<number>(0);
+    const [subtotal, setSubtotal] = useState<string>('');
+    let totalPrice = (Math.round(productPrice * 100) / 100) + deliveryPrice
+    let total = "Total: " + totalPrice + " DKK"
 
-    //need to remove centering once its included in css
-    function Title() {
-        return (
-            <div className='theme-c'><h2><center>Ordreoversigt</center></h2></div>
-        )
-    }
-
-    //need to remove useEffect to avoid jumping when recalculating
-    function Subtotal({ products }: Props) {
-        const [subtotal, setSubtotal] = useState<string>('');
-        useEffect(() => {
-            let productPrice = 0
-            products.forEach(element => {
-                productPrice += element.price * element.quantity;
-            });
-            setProductPrice(productPrice)
-            setSubtotal("Subtotal: " + (Math.round(productPrice * 100) / 100) + " DKK");
-        }, [products])
-
-        return (
-            <div className='theme-c'><h2>{subtotal}</h2></div>
-        )
-    }
+    useEffect(() => {
+        let productPrice = 0
+        products.forEach(element => {
+            productPrice += element.price * element.quantity;
+        });
+        setProductPrice(productPrice)
+        setSubtotal("Subtotal: " + (Math.round(productPrice * 100) / 100) + " DKK");
+    }, [products])
 
     function DeliveryCost() {
         return (
@@ -98,28 +86,22 @@ export const Checkout = ({ products }: Props) => {
         )
     }
 
-    function Total({ products }: Props) {
-        let totalPrice = (Math.round(productPrice * 100) / 100) + deliveryPrice
-        let total = "Total: " + totalPrice + " DKK"
-        return (
+    return (
+        <div className='theme-checkout'>
+            <div className='theme-c'><h2><center>Ordreoversigt</center></h2></div>
+            <div className='theme-c'><h2>{subtotal}</h2></div>
+            
+            <div className='theme-c'><h2>{"Levering: " + deliveryPrice + " DKK"}</h2></div>
+            <DeliveryMethods />
             <div>
                 <h1>{total}</h1>
-                <center>
+                {/**<center>
                     <Link to="/kassen">
                         <button>Til kassen</button>
                     </Link>
-                </center>
-            </div>
-        )
-    }
-
-    return (
-        <div className='theme-checkout'>
-            <Title />
-            <Subtotal products={products} />
-            <DeliveryCost />
-            <DeliveryMethods />
-            <Total products={products} />
+                </center>*/}
+            </div>            
+            {/**<Total products={products} />*/}
         </div>
     )
 }

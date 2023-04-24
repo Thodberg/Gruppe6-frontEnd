@@ -39,7 +39,6 @@ const products = [
 describe('Rendering', () => {
     it('renders the correct length', () => {
         render(<Checkout products={products} />);
-
         expect(products).toHaveLength(3);
         expect(screen.getByText("Ordreoversigt")).toBeInTheDocument();
     })
