@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 //replace with orders
 
 //replace URLs with more permanent solution
-const DELIVERYCOSTS = [
+const deliveryCosts = [
     {
         name: "GLS",
         price: 42,
@@ -50,32 +50,35 @@ export const Checkout = ({ products }: Props) => {
         setSubtotal("Subtotal: " + (Math.round(productPrice * 100) / 100) + " DKK");
     }, [products])
 
-    function DeliveryCost() {
+    function deliveryCost() {
         return (
             <div className='theme-c'><h2>{"Levering: " + deliveryPrice + " DKK"}</h2></div>
         )
     }
 
-    function DeliveryMethods() {
-        function selectRadio(price: number, name: string) {
-            setDeliveryPrice(price);
-            setCurrentDeliver(name)
-        }
+    function selectRadio(price: number, name: string) {
+        setDeliveryPrice(price);
+        setCurrentDeliver(name)
+    }
 
-        return (
+    return (
+        <div className='theme-checkout'>
+            <div className='theme-c'><h2><center>Ordreoversigt</center></h2></div>
+            <div className='theme-c'><h2 aria-label="subtotal">{subtotal}</h2></div>            
+            <div className='theme-c'><h2 aria-label="levering">{"Levering: " + deliveryPrice + " DKK"}</h2></div>
             <form>
                 <fieldset>
-                    {DELIVERYCOSTS.map((method) => {
+                    {deliveryCosts.map((method) => {
                         return (
                             <div>
                                 <label>
-                                    <input type="radio" id={method.name} name="deliveryMethods" value={method.name} onClick={() => selectRadio(method.price, method.name)} checked={method.name == currentDeliver} />
+                                    <input type="radio" id={method.name} aria-label={method.name} name="deliveryMethods" value={method.name} onClick={() => selectRadio(method.price, method.name)} checked={method.name == currentDeliver} />
                                     <img
                                         src={method.img}
                                         alt={method.altText}
                                         width="100" />
                                     <p>
-                                        {method.description}
+                                        {+ method.price +" DKK " + method.description }
                                     </p>
                                 </label>
                             </div>
@@ -83,18 +86,9 @@ export const Checkout = ({ products }: Props) => {
                     })}
                 </fieldset>
             </form>
-        )
-    }
-
-    return (
-        <div className='theme-checkout'>
-            <div className='theme-c'><h2><center>Ordreoversigt</center></h2></div>
-            <div className='theme-c'><h2>{subtotal}</h2></div>
-            
-            <div className='theme-c'><h2>{"Levering: " + deliveryPrice + " DKK"}</h2></div>
-            <DeliveryMethods />
+        
             <div>
-                <h1>{total}</h1>
+                <h1 aria-label="total" >{total}</h1>
                 {/**<center>
                     <Link to="/kassen">
                         <button>Til kassen</button>

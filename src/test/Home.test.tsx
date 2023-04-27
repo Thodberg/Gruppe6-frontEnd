@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Home } from "../pages/Home";
 import MockData from "../mockData2.json"
+import Delivery from "../Delivery.json"
 
 describe('Rendering', () => {
     it('renders the correct text at start', () => {

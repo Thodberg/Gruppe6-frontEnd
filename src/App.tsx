@@ -1,8 +1,5 @@
-//import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
-//import { NavBar } from "./components/NavBar";
-//import { Product } from './models/Product';
-import { DeliveryInformation as Kassen } from "./pages/DeliveryInformation";
+import { Kassen } from "./pages/Kassen";
 import { Home } from "./pages/Home";
 
 

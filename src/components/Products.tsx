@@ -110,7 +110,7 @@ export const Products = ({ products, setProducts }: Props) => {
                                     </p>
                                 </td>
                                 <td>
-                                    <button aria-label={product.id + "addQuantityToList"} onClick={() => addQuantityToList(product)}>+</button>
+                                    <button aria-label={product.id + "addOneQuantityToList"} onClick={() => addQuantityToList(product)}>+</button>
                                 </td>
                                 <td width="50px">
                                     <center>
@@ -120,7 +120,7 @@ export const Products = ({ products, setProducts }: Props) => {
                                     </center>
                                 </td>
                                 <td>
-                                    <button aria-label={product.id + "removeQuantityFromList"} onClick={() => removeQuantityFromList(product)}>-</button>
+                                    <button aria-label={product.id + "removeOneQuantityToList"} onClick={() => removeQuantityFromList(product)}>-</button>
                                 </td>
                                 <td>
                                     <img src='product.img' alt='Product'>

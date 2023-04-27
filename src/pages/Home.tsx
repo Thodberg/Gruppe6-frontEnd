@@ -6,6 +6,7 @@ import { Checkout } from "../components/Checkout";
 
 export const Home = () => {
     const [products, setProducts] = useState<Product[]>(MockData);
+
     return (
         <>
             <div>

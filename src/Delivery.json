@@ -1,0 +1,23 @@
+[
+    {
+        "name": "GLS",
+        "price": 42,
+        "img": "src/assets/GLS logo.png",
+        "altText": "GLS",
+        "description": "Valgfri pakkeshop 1-2 hverdage"
+    },
+    {
+        "name": "Bring",
+        "price": 46,
+        "img": "src/assets/bring logo.png",
+        "altText": "Bring",
+        "description": "Valgfri pakkeshop 1-2 hverdage"
+    },
+    {
+        "name": "Plante Land",
+        "price": 0,
+        "img": "src/assets/GLS logo.png",
+        "altText": "Plante Land",
+        "description": "Hent i butik"
+    }
+]
