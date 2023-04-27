@@ -3,6 +3,8 @@ import { render, screen } from "@testing-library/react";
 
 import { Checkout } from "../components/Checkout";
 
+//qconst 
+
 const products = [
     {
         "id": "red-creeping-rose",
@@ -41,10 +43,12 @@ describe('Rendering', () => {
         render(<Checkout products={products} />);
         expect(products).toHaveLength(3);
         expect(screen.getByText("Ordreoversigt")).toBeInTheDocument();
-    })
-})
+        //screen.getByRole("heading", {name: "" ;
+       })     
+    });
+
 
 //TODO make test for correct calculations
 
 
-
+    
