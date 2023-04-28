@@ -1,33 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../models/Product';
 import { Link } from 'react-router-dom';
+import deliveryCosts from "../Delivery.json"
+import {AriaLabelStr} from '../models/AriaLabelStr';
 
-//replace with orders
-
-//replace URLs with more permanent solution
-const deliveryCosts = [
-    {
-        name: "GLS",
-        price: 42,
-        img: "src/assets/GLS logo.png",
-        altText: "GLS",
-        description: "Valgfri pakkeshop 1-2 hverdage"
-    },
-    {
-        name: "Bring",
-        price: 46,
-        img: "src/assets/bring logo.png",
-        altText: "Bring",
-        description: "Valgfri pakkeshop 1-2 hverdage"
-    },
-    {
-        name: "Plante Land",
-        price: 0,
-        img: "src/assets/GLS logo.png",
-        altText: "Plante Land",
-        description: "Hent i butik"
-    }
-]
 
 type Props = {
     products: Product[];
@@ -35,19 +11,36 @@ type Props = {
 
 export const Checkout = ({ products }: Props) => {
     const [deliveryPrice, setDeliveryPrice] = useState<number>(0);
-    const [currentDeliver, setCurrentDeliver] = useState<string>('');
+    const [currentDeliver, setCurrentDeliver] = useState<string>('Plante Land');
+    const [productPriceBeforeRebate, setProductPriceBeforeRebate] = useState<string>('');
+    const [rebate, setRebate] = useState<string>('');
     const [productPrice, setProductPrice] = useState<number>(0);
     const [subtotal, setSubtotal] = useState<string>('');
     let totalPrice = (Math.round(productPrice * 100) / 100) + deliveryPrice
     let total = "Total: " + totalPrice + " DKK"
+    let rebateLimitPriceOnTotalPrice = 1400
+    let rebatePercentOnTotal = 10
+    
 
     useEffect(() => {
+        let rebate = 0
         let productPrice = 0
+        let productPriceBeforeRebate = 0
         products.forEach(element => {
-            productPrice += element.price * element.quantity;
+            productPriceBeforeRebate += element.priceForQuantity;
         });
+        if(productPriceBeforeRebate >= rebateLimitPriceOnTotalPrice) {
+            productPrice= productPriceBeforeRebate*(1.0 - ((1.0)/(rebatePercentOnTotal*1.0)))
+            rebate = productPriceBeforeRebate*((1.0/rebatePercentOnTotal))
+        } else {
+            rebate = 0
+            productPrice = productPriceBeforeRebate
+        }
+
         setProductPrice(productPrice)
-        setSubtotal("Subtotal: " + (Math.round(productPrice * 100) / 100) + " DKK");
+        setProductPriceBeforeRebate("Sum:   " + (Math.round(productPriceBeforeRebate * 100) / 100) + " DKK");
+        setRebate                  ("-Rabat:   " + (Math.round(rebate * 100) / 100) + " DKK");
+        setSubtotal                ("Subtotal:   " + (Math.round(productPrice * 100) / 100) + " DKK");
     }, [products])
 
     function deliveryCost() {
@@ -63,22 +56,33 @@ export const Checkout = ({ products }: Props) => {
 
     return (
         <div className='theme-checkout'>
-            <div className='theme-c'><h2><center>Ordreoversigt</center></h2></div>
-            <div className='theme-c'><h2 aria-label="subtotal">{subtotal}</h2></div>            
-            <div className='theme-c'><h2 aria-label="levering">{"Levering: " + deliveryPrice + " DKK"}</h2></div>
+            <div className='theme-c'><h1><center>Ordreoversigt</center></h1></div>
+            <p>
+                Køb for min {rebateLimitPriceOnTotalPrice} DKK og få {rebatePercentOnTotal}% ekstra i rabat
+            </p>
+
+            <div className='theme-c'>
+                <h2 aria-label={AriaLabelStr.sum}>{productPriceBeforeRebate}</h2>
+                <h2 aria-label={AriaLabelStr.rabat}>{rebate}</h2>
+                <h2 aria-label={AriaLabelStr.subtotal}>{subtotal}</h2>           
+                <h2 aria-label={AriaLabelStr.levering}>{"Levering: " + deliveryPrice + " DKK"}</h2>
+            </div>
             <form>
                 <fieldset>
                     {deliveryCosts.map((method) => {
                         return (
                             <div>
                                 <label>
-                                    <input type="radio" id={method.name} aria-label={method.name} name="deliveryMethods" value={method.name} onClick={() => selectRadio(method.price, method.name)} checked={method.name == currentDeliver} />
+                                    <p>
+                                    <input type="radio" id={method.name} aria-label={method.name} name="deliveryMethods" 
+                                    value={method.name} onClick={() => selectRadio(method.price, method.name)} checked={method.name == currentDeliver} />
+                                    { method.price +" DKK "}
                                     <img
                                         src={method.img}
                                         alt={method.altText}
                                         width="100" />
-                                    <p>
-                                        {+ method.price +" DKK " + method.description }
+                                    
+                                        { method.description }
                                     </p>
                                 </label>
                             </div>
@@ -88,7 +92,7 @@ export const Checkout = ({ products }: Props) => {
             </form>
         
             <div>
-                <h1 aria-label="total" >{total}</h1>
+                <h1 aria-label={AriaLabelStr.total} >{total}</h1>
                 {/**<center>
                     <Link to="/kassen">
                         <button>Til kassen</button>

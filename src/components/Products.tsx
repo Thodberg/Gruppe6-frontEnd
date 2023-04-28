@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 
 import { Product } from '../models/Product';
+import {AriaLabelStr} from '../models/AriaLabelStr';
 
 type Props = {
     products: Product[];
@@ -77,17 +78,20 @@ export const Products = ({ products, setProducts }: Props) => {
     }
 
     function calcPrice(product: Product) {
-        if (product.quantity >= product.rebateQuantity && product.price * product.quantity >= 300) {
+        /**if (product.quantity >= product.rebateQuantity && product.price * product.quantity >= 300) {
+
             return ((product.price * product.quantity) * (0.9 - product.rebatePercent / 100))
         }
         else if (product.price * product.quantity >= 300) {
             return ((product.price * product.quantity) * 0.9)
-        }
-        else if (product.quantity >= product.rebateQuantity) {
-            return ((product.price * product.quantity) * (1 - product.rebatePercent / 100))
+        }*/
+        if (product.quantity >= product.rebateQuantity) {
+            product.priceForQuantity = ((product.price * product.quantity) * (1 - product.rebatePercent / 100))
+            return product.priceForQuantity
         }
         else {
-            return (product.price * product.quantity)
+            product.priceForQuantity = (product.price * product.quantity)
+            return product.priceForQuantity
         }
     }
 
@@ -103,29 +107,32 @@ export const Products = ({ products, setProducts }: Props) => {
                                         {product.name}
                                     </h2>
                                     <div className='break'></div>
-                                    <button aria-label={product.id + "removeProductFromList"} onClick={() => removeProductFromList(product)}>🗑️</button>
+                                    <button aria-label={product.id + AriaLabelStr.removeProductFromList} onClick={() => removeProductFromList(product)}>🗑️</button>
 
                                 </td>
                                 <td width="100px">
-                                    <h3 id={product.id + "bulkDiscount"}>
+                                    <h3 id={product.id + AriaLabelStr.bulkDiscount} aria-label={product.id + AriaLabelStr.bulkDiscount}>
                                         {(Math.round(calcPrice(product) * 100) / 100) + " " + product.currency}
                                     </h3>
                                     <p>
-                                        Køb {product.rebateQuantity} produkter og få 10%
+                                        Pris pr. stk {product.price } {product.currency}<br/> 
+                                         
+                                        Køb {product.rebateQuantity} stk og få {product.rebatePercent}% rabat
                                     </p>
+
                                 </td>
                                 <td>
-                                    <button aria-label={product.id + "addOneQuantityToList"} onClick={() => addQuantityToList(product)}>+</button>
+                                    <button aria-label={product.id + AriaLabelStr.addOneQuantityToList} onClick={() => addQuantityToList(product)}>+</button>
                                 </td>
                                 <td width="50px">
                                     <center>
-                                        <h4 id={product.id + "quantity"} aria-label={product.id + "quantity"}>
+                                        <h4 id={product.id + AriaLabelStr.quantity} aria-label={product.id + AriaLabelStr.quantity}>
                                             {product.quantity}
                                         </h4>
                                     </center>
                                 </td>
                                 <td>
-                                    <button aria-label={product.id + "removeOneQuantityToList"} onClick={() => removeQuantityFromList(product)}>-</button>
+                                    <button aria-label={product.id + AriaLabelStr.removeOneQuantityToList} onClick={() => removeQuantityFromList(product)}>-</button>
                                 </td>
                                 <td>
                                     <img src='product.img' alt='Product'>
