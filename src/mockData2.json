@@ -3,6 +3,7 @@
         "id": "red-creeping-rose",
         "name": "Rød Slyngrose",
         "price": 169.00,
+        "priceForQuantity": 338.00,
         "currency": "DKK",
         "quantity": 2,
         "rebateQuantity": 3,
@@ -14,10 +15,11 @@
         "id": "orangeOrkidé",
         "name": "Orange Orkidé",
         "price": 189.00,
+        "priceForQuantity": 189.00,
         "currency": "DKK",
         "quantity": 1,
         "rebateQuantity": 2,
-        "rebatePercent": 10,
+        "rebatePercent": 11,
         "upsellProductId": "",
         "imageUrl": ""
     },
@@ -25,10 +27,11 @@
         "id": "whiteOrkidé",
         "name": "Hvid Orkidé",
         "price": 189.00,
+        "priceForQuantity": 189.00,
         "currency": "DKK",
         "quantity": 1,
         "rebateQuantity": 2,
-        "rebatePercent": 10,
+        "rebatePercent": 12,
         "upsellProductId": "",
         "imageUrl": ""
     }
