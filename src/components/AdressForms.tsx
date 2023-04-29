@@ -1,31 +1,128 @@
 import {AriaLabelStr} from '../models/AriaLabelStr';
+import { FormEvent, useState } from "react";
 
 export const AddressForms = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const verifyAll = () => {}
 
-  const email = document.getElementById("mail");
-
-/**email.addEventListener("input", (event) => {
-  if (email.validity.typeMismatch) {
-    email.setCustomValidity("I am expecting an email address!");
-  } else {
-    email.setCustomValidity("");
+  /**
+   * Indsaetter by i formular vha. postnr
+   */
+  async function indsaetByVhaPostnr() { 
+    /**const artist = encodeURIComponent(formElements.artist.value);
+    const date = encodeURIComponent(formElements.date.value);
+    const query = `artist:${artist} AND date:${date}`;
+    const url = `https://musicbrainz.org/ws/2/release?fmt=json&query=${query}`;
+    setLoading(true);
+    try {
+      const response = await fetch(url);
+      const mbResult = (await response.json()) as {
+        releases: { title: string; date: string }[];
+      };
+      const { releases } = mbResult;
+      dispatch({
+        type: "search",
+        payload: {
+          artist,
+          date,
+          results: releases.map(({ title, date }) => `${title} (${date})`),
+        },
+      });*/ 
   }
-});*/
 
+async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formElements = form.elements as typeof form.elements & {
+      first_name: HTMLInputElement;
+      last_name: HTMLInputElement;
+      email: HTMLInputElement;
+      country: HTMLInputElement;
+      adress1: HTMLInputElement;
+      post_nr_1:HTMLInputElement;
+      post_nr_2:HTMLInputElement;
+      phone:HTMLInputElement;
+      terms: HTMLInputElement;
+    };
+    
+    if (formElements.post_nr_1.value === "") {
+      formElements.post_nr_1.setCustomValidity(AriaLabelStr.user_postnr_err);
+      return;
+    } else if (formElements.email.value === "") {
+      formElements.email.setCustomValidity(AriaLabelStr.user_email_err);
+      return;
+    } else if (formElements.phone.value === "") {
+      formElements.phone.setCustomValidity(AriaLabelStr.telefon_nr_err);
+      return;
+    } 
 
-  return (
-      <fieldset>
-<form> 
+    console.log("hallo " + formElements.terms.value)
+
+    // data sendes til requestbin.com
+      /**const logResponse = await fetch(
+        "https://eoy1vosu2h8dew3.m.pipedream.net",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            url,
+            count: releases.length,
+          }),
+        }
+      );
+      if (!logResponse.ok) {
+        setError("Could not log search");
+      }
+    } finally {
+      setLoading(false);
+    }*/
+  }
+
+  function onValidatePhone(e: FormEvent) {
+    const target = e.target as HTMLInputElement;
+    if (target.validity.patternMismatch) {
+      target.setCustomValidity(AriaLabelStr.telefon_nr_err);
+    } else {
+      target.setCustomValidity("");
+    }
+  }
+
+  function onValidatePostNumber(e: FormEvent) {
+    const target = e.target as HTMLInputElement;
+    if (target.validity.patternMismatch) {
+      target.setCustomValidity(AriaLabelStr.user_postnr_err);
+    } else {
+      target.setCustomValidity("");
+    }
+  }
+
+   function onValidateEmail(e: FormEvent) {
+    const target = e.target as HTMLInputElement;
+    if (target.validity.typeMismatch) {
+      target.setCustomValidity(AriaLabelStr.user_email_err);
+    } else {
+      target.setCustomValidity("");
+    }
+  }
+  
+
+return (
+
+<form onSubmit={handleSubmit}> 
+
   <ul>
-    <li>
-      <label htmlFor="fornavn">Fornavn*</label>
+    <li>      
+      <label htmlFor="first_name">Fornavn*</label>      
       <div className="break"></div>
-      <input className="theme-address-forms" type="text" id="first_name" required name={AriaLabelStr.user_first_name}  
+      <input className="theme-address-forms" type="text" id="first_name" required
+      name={AriaLabelStr.user_first_name}   
           aria-label={AriaLabelStr.user_first_name}/>
     </li>
     <li>
-      <label htmlFor="efternavn">Efternavn*</label>
+      <label htmlFor="last_name">Efternavn*</label>
       <div className="break"></div>
       <input className="theme-address-forms" type="text" id="last_name" required name="user_last_name" 
       aria-label={AriaLabelStr.user_last_name}/>
@@ -33,27 +130,28 @@ export const AddressForms = () => {
     <li>
       <label htmlFor="email">Email*</label>
       <div className="break"></div>
-      <input className="theme-address-forms" type="email" id="email" required name={AriaLabelStr.user_email} 
-      aria-label={AriaLabelStr.user_email}/>
+      <input className="theme-address-forms" type="email" id="email" name={AriaLabelStr.user_email} 
+      aria-label={AriaLabelStr.user_email} onInput={onValidateEmail}/>
     </li>
     <li>
       <label htmlFor="country">Choose a country to ship to*</label>
       <div className="break"></div>
-      <select className="theme-address-forms" id="countries"   required 
+      <select className="theme-address-forms" id="country"   required 
       aria-label={AriaLabelStr.user_country}>
-        <option value="Empty"></option>
+        <option value=""></option>
         <option value="Denmark">Denmark</option>
       </select>
     </li>
     <li>
-      <label htmlFor="adresse1">Adresse 1*</label>
+      <label htmlFor="adress1">Adresse 1*</label>
       <div className="break"></div>
         <input className="theme-address-forms" type="text" id="adress1" required name={AriaLabelStr.user_adress_1} 
         aria-label={AriaLabelStr.user_adress_1}/>
       <div className="break"></div>  
-        <label htmlFor="Post_nr_1">Post nr.*</label>
+        <label htmlFor="post_nr_1">Post nr.*</label>
       <div className="break"></div>
-        <input className="theme-address-forms" type="text" id="post_nr_1" pattern="[0-9]{4}" required name={AriaLabelStr.user_postnr_1} 
+        <input className="theme-address-forms" type="text" id="post_nr_1" pattern="[0-9]{4}" 
+        name={AriaLabelStr.user_postnr_1} onInput={onValidatePostNumber}
         aria-label={AriaLabelStr.user_postnr_1}/>    
       <div className="break"></div>  
         <label htmlFor="By_nr_1">By*</label>
@@ -67,9 +165,10 @@ export const AddressForms = () => {
         <input className="theme-address-forms" type="text" id="adress2" name={AriaLabelStr.user_adress_2} 
         aria-label={AriaLabelStr.user_adress_2}/>
       <div className="break"></div>  
-        <label htmlFor="Post_nr_2">Post nr.</label>
+        <label htmlFor="post_nr_2">Post nr.</label>
       <div className="break"></div>
-        <input className="theme-address-forms" type="text" id="post_nr_2" pattern="[0-9]{4}" required name={AriaLabelStr.user_postnr_2} 
+        <input className="theme-address-forms" type="text" id="post_nr_2" pattern="[0-9]{4}"  
+        name={AriaLabelStr.user_postnr_2} onInput={onValidatePostNumber}
         aria-label={AriaLabelStr.user_postnr_2}/>    
       <div className="break"></div>  
         <label htmlFor="By_nr_2">By</label>
@@ -78,11 +177,11 @@ export const AddressForms = () => {
         aria-label={AriaLabelStr.user_by_2}/>        
     </li>
     <li>
-    <label htmlFor="telefonnummer">Telefonnummer*</label>
+    <label htmlFor="phone">Telefonnummer*</label>
     <div className="break"></div>
       <input className="theme-address-forms" type="tel" id="phone" name="phone"
-       pattern="[0-9]{8}" aria-label={AriaLabelStr.telefon_nr}
-       required></input>
+       pattern="[0-9]{8}" aria-label={AriaLabelStr.telefon_nr} onInput={onValidatePhone}
+       ></input>
     </li>
     <li>
     <label htmlFor="firmanavn">Firmanavn</label>
@@ -98,21 +197,27 @@ export const AddressForms = () => {
        ></input>
     </li>
     <li>
-      <label htmlFor="vilkår">Vilkår*</label>
+      <label>Vilkår*</label>
     <div id='dialog-window'>
         <div id='scrollable-content' >
             En masse vilkår for køb kan puttes her. Nu bare dummy tekst så man kan se scrolle virker.
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, earum facere. Eum deserunt esse necessitatibus ipsum doloremque quos expedita odit porro quisquam veritatis deleniti veniam, omnis voluptate repellat ipsam explicabo.</p>
-            <label>
-                <input type="checkbox" id="terms" name="terms"  required  aria-label={AriaLabelStr.vilkaar_accept}/> Jeg accepterer vilkår
-            </label>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, earum facere. 
+              Eum deserunt esse necessitatibus ipsum doloremque quos expedita odit porro quisquam 
+              veritatis deleniti veniam, omnis voluptate repellat ipsam explicabo.</p>
+            <label htmlFor = "terms"> </label>
+                <input type="checkbox" id="terms" required name="terms"  aria-label={AriaLabelStr.vilkaar_accept}
+                /> 
+                Jeg accepterer vilkår
+            
         </div>
         </div>
         <br />
     </li>    
         <div className='theme-c'>
             <label>
-                <input type="checkbox" id="terms" name="terms" aria-label={AriaLabelStr.tilbud_accept}/> Jeg vil gerne modtage nyhedsbrev og tilbud
+                <input type="checkbox" id="terms" name="terms" aria-label={AriaLabelStr.tilbud_accept}
+                />
+                 Jeg vil gerne modtage nyhedsbrev og tilbud
             </label>
         </div>
   
@@ -122,9 +227,19 @@ export const AddressForms = () => {
         </p>
       <p>
           <button type="submit">Til betaling</button>
-        </p>
+      </p>
+        {error && <p>{error}</p>}
+        {loading && <p>Loading...</p>}
+        {!loading && (
+        <>
+          <p>Response from server:</p>
+          <ol>
+            
+          </ol>
+        </>
+      )}
 
   </form>
-  </fieldset>
+ 
     )
 }
