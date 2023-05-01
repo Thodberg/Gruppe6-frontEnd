@@ -3,339 +3,265 @@
     "id": "red-creeping-rose",
     "name": "Rød Slyngrose",
     "price": 169.00,
+    "priceForQuantity": 338.00,
     "currency": "DKK",
     "quantity": 2,
     "rebateQuantity": 3,
     "rebatePercent": 10,
     "upsellProductId": "",
-    "img": "redRose.webp"
+    "imageUrl": "src/assets/plants/redRose.png"
   },
   {
     "id": "pink-large-flowered-rose",
     "name": "Pink Storblomstret rose",
     "price": 149.00,
+    "priceForQuantity": 149.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 25,
     "upsellProductId": "vitamin-c-depot-500-250",
-    "img": ""
+    "imageUrl": "src/assets/plants/bigPinkRose.png"
   },
   {
     "id": "yellow-english-rose",
     "name": "Gul Engelsk rose",
     "price": 169.00,
+    "priceForQuantity": 169.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 3,
     "rebatePercent": 10,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/yellowRose.png"
   },
   {
     "id": "pottingSoil-40L",
     "name": "Pottemuld 40 litter",
     "price": 69.95,
+    "priceForQuantity": 69.95,
     "currency": "DKK",
-    "quantity": 2,
+    "quantity": 1,
     "rebateQuantity": 5,
     "rebatePercent": 10,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/pottemuld40.png"
   },
   {
     "id": "pottingSoil-18L",
     "name": "Pottemuld 18 litter",
     "price": 49.95,
+    "priceForQuantity": 49.95,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
     "upsellProductId": "pottingSoil-40L",
-    "img": ""
+    "imageUrl": "src/assets/plants/pottemuld40.png"
   },
   {
     "id": "lemonTree-H70",
     "name": "Lille Citrontræ H70",
     "price": 379.00,
+    "priceForQuantity": 379.00,
     "currency": "DKK",
-    "quantity": 2,
+    "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 50,
     "upsellProductId": "lemonTree-H90",
-    "img": ""
+    "imageUrl": "src/assets/plants/limontree70.png"
   },
   {
     "id": "lemonTree-H90",
     "name": "Stort citrontræ H90",
     "price": 449.00,
+    "priceForQuantity": 449.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/lemontree90.png"
   },
   {
     "id": "rubbertree-H60",
     "name": "Gummitræ H60",
     "price": 129.00,
+    "priceForQuantity": 129.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 3,
     "rebatePercent": 10,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/rubbertree.png"
   },
   {
     "id": "Pink-QueenKalanchoe",
     "name": "Lyserød Queen Kalanchoe",
     "price": 32.95,
+    "priceForQuantity": 32.95,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 3,
     "rebatePercent": 10,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/pink-queen-kalanchoe.png"
   },
   {
     "id": "ZantedeschiaMorningSun-orange",
     "name": "Orange Zantedeschia Morning Sun",
     "price": 119.00,
+    "priceForQuantity": 119.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/zantedeschia-morningSun.png"
   },
   {
     "id": "KalanchoeMagicBell",
     "name": "Hvide Kalanchoe MagicBell",
     "price": 109.00,
+    "priceForQuantity": 109.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 20,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/magicbell.png"
   },
   {
     "id": "yellowOrkidé",
     "name": "Gul Orkidé",
     "price": 189.00,
+    "priceForQuantity": 189.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
-    "upsellProductId": ""
+    "upsellProductId": "",
+    "imageUrl": "src/assets/plants/yellowOrkide.png"
   },
   {
     "id": "orangeOrkidé",
     "name": "Orange Orkidé",
     "price": 189.00,
-    "currency": "DKK",
-    "quantity": 1,
-    "rebateQuantity": 2,
-    "rebatePercent": 10,
-    "upsellProductId": ""
-  },
-  {
-    "id": "whiteOrkidé",
-    "name": "Hvid Orkidé",
-    "price": 189.00,
+    "priceForQuantity": 189.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 10,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/OrangeOrkide.png"
+  },
+  {
+    "id": "whiteOrkidé",
+    "name": "Hvid Orkidé",
+    "price": 159.00,
+    "priceForQuantity": 159.00,
+    "currency": "DKK",
+    "quantity": 1,
+    "rebateQuantity": 2,
+    "rebatePercent": 10,
+    "upsellProductId": "",
+    "imageUrl": "src/assets/plants/whiteOrkide.png"
   },
   {
     "id": "bayonetPlant9",
     "name": "Lille Bajonetplante Ø9",
     "price": 49.95,
+    "priceForQuantity": 49.95,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 10,
     "upsellProductId": "bayonetPlant11",
-    "img": ""
+    "imageUrl": "src/assets/plants/smallBajonetPlant9.png"
   },
   {
     "id": "bayonetPlant11",
     "name": "Stor Bajonetplante Ø11",
     "price": 79.95,
+    "priceForQuantity": 79.95,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 10,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/bigBajonetPlant11.png"
   },
   {
     "id": "umbrellaTree",
     "name": "Paraplytræ",
     "price": 199.00,
+    "priceForQuantity": 199.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/umbrellatree.png"
   },
   {
     "id": "livingRoomAsh",
     "name": "Stueask",
     "price": 119.00,
+    "priceForQuantity": 119.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/stueasktree.png"
   },
-  {
-    "id": "EcheveriaGibbiflora",
-    "name": "Echeveria Gibbiflora",
-    "price": 19.95,
-    "currency": "DKK",
-    "quantity": 1,
-    "rebateQuantity": 5,
-    "rebatePercent": 10,
-    "upsellProductId": "",
-    "img": ""
-  },
-  {
-    "id": "EcheveriaAgavoides",
-    "name": "Echeveria Agavoides",
-    "price": 19.95,
-    "currency": "DKK",
-    "quantity": 3,
-    "rebateQuantity": 5,
-    "rebatePercent": 10,
-    "upsellProductId": "",
-    "img": ""
-  },
-  {
-    "id": "pearlsOnString",
-    "name": "Perler på snor",
-    "price": 19.95,
-    "currency": "DKK",
-    "quantity": 4,
-    "rebateQuantity": 5,
-    "rebatePercent": 10,
-    "upsellProductId": "",
-    "img": ""
-  },
+  
   {
     "id": "cherriesSweetheart",
     "name": "Kirsebærtræ Sweetheart",
     "price": 329.00,
+    "priceForQuantity": 329.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 4,
     "rebatePercent": 25,
     "upsellProductId": "cherriesSunburst",
-    "img": ""
+    "imageUrl": "src/assets/plants/sweetheart.png"
   },
   {
     "id": "cherriesSunburst",
     "name": "Pryamide kirsebærtræ Sunburst",
     "price": 369.00,
+    "priceForQuantity": 369.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 10,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/pyramidCherry.png"
   },
   {
     "id": "redIngridMarie",
     "name": "Pyramide æbletræ, Rød Ingrid Marie",
     "price": 369.00,
+    "priceForQuantity": 369.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 4,
     "rebatePercent": 25,
     "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/ingridApple.png"
   },
   {
     "id": "rosette",
     "name": "Æbletræ, Rosette",
     "price": 299.00,
+    "priceForQuantity": 299.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 4,
     "rebatePercent": 25,
     "upsellProductId": "redIngridMarie",
-    "img": ""
-  },
-  {
-    "id": "plantSpade-2C",
-    "name": "Planteskovl 7 cm bred, 2-komponet gummighåndgreb",
-    "price": 109.00,
-    "currency": "DKK",
-    "quantity": 1,
-    "rebateQuantity": 2,
-    "rebatePercent": 10,
-    "upsellProductId": "",
-    "img": ""
-  },
-  {
-    "id": "metalPlantSpade",
-    "name": "Metal planteskovl",
-    "price": 55.00,
-    "currency": "DKK",
-    "quantity": 1,
-    "rebateQuantity": 4,
-    "rebatePercent": 25,
-    "upsellProductId": "plantSpade-2C",
-    "img": ""
-  },
-  {
-    "id": "softPlantSpade",
-    "name": "Planteskovl med soft greb",
-    "price": 49.95,
-    "currency": "DKK",
-    "quantity": 1,
-    "rebateQuantity": 4,
-    "rebatePercent": 25,
-    "upsellProductId": "plantSpade-2C",
-    "img": ""
-  },
-  {
-    "id": "womanGloves",
-    "name": "Havehandsker med blomstereng, dame",
-    "price": 51.95,
-    "currency": "DKK",
-    "quantity": 1,
-    "rebateQuantity": 2,
-    "rebatePercent": 10,
-    "upsellProductId": "",
-    "img": ""
-  },
-  {
-    "id": "pinkGloves",
-    "name": "Havehandsker pink med dinosaurus, børn",
-    "price": 39.95,
-    "currency": "DKK",
-    "quantity": 2,
-    "rebateQuantity": 0,
-    "rebatePercent": 0,
-    "upsellProductId": "",
-    "img": ""
-  },
-  {
-    "id": "blueGloves",
-    "name": "Havehandsker blå med dinosaurus, bærn",
-    "price": 39.95,
-    "currency": "DKK",
-    "quantity": 1,
-    "rebateQuantity": 0,
-    "rebatePercent": 0,
-    "upsellProductId": "",
-    "img": ""
+    "imageUrl": "src/assets/plants/rosetteApple.png"
   }
 ]

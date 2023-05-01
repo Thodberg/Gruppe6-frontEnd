@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Kassen } from "./pages/Kassen";
 import { Home } from "./pages/Home";
 import { Product } from "./models/Product";
-import MockData from "./mockData2.json"
+import MockData from "./mockData.json"
 
 export default function App() {
   const [products, setProducts] = useState<Product[]>(MockData);

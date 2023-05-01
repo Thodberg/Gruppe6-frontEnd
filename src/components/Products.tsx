@@ -11,20 +11,15 @@ type Props = {
 export const Products = ({ products, setProducts }: Props) => {
 
     //TODO add nudging to buy more to get a rebate
-    function buyMore(product: Product):Product | undefined {
-        return product.((expe))
+    function buyMore(product: Product) {
+        if (product.quantity < product.rebateQuantity) {
+            return (product.rebateQuantity)
+        } else {
+            return (product.rebateQuantity)
+        }
 
     }
-    function findExpensiveProduct(products: Product[]): Product | undefined {
-        return products.reduce((expensive, current) => {
-            return current.price > expensive.price ? current : expensive;
-        },
-        products[0])
-    }
-    function moreExpensiveOptions(product: Product): HTMLDivElement{
-        const div = document.createElement("div");
-        div.
-    } {
+    function moreExpensiveOptions(product: Product): void {
         if (product.upsellProductId.length > 0) {
             console.log('Der er et produkt i bedre kvalitet som minder om til ${product.price}, er du intereseret?')
         }
@@ -56,7 +51,8 @@ export const Products = ({ products, setProducts }: Props) => {
         )
     }
 
-    function removeQuantityFromList(product: Product) {
+    function removeQuantityFromList(product: Product, quantity: number) {
+        for (let index = 0; index < quantity; index++) {
         let newProducts = [...products,
         ]
         newProducts.find((e) => {
@@ -71,6 +67,7 @@ export const Products = ({ products, setProducts }: Props) => {
                 )
             }
         })
+    }
     }
 
     function removeProductFromList(product: Product) {
@@ -107,7 +104,7 @@ export const Products = ({ products, setProducts }: Props) => {
                                         {product.name}
                                     </h2>
                                     <div className='break'></div>
-                                    <button aria-label={product.id + AriaLabelStr.removeProductFromList} onClick={() => removeProductFromList(product)}>🗑️</button>
+                                    <button aria-label={product.id + AriaLabelStr.removeProductFromList} onClick={() => removeQuantityFromList(product, product.quantity)}>🗑️</button>
 
                                 </td>
                                 <td width="100px">
@@ -132,11 +129,13 @@ export const Products = ({ products, setProducts }: Props) => {
                                     </center>
                                 </td>
                                 <td>
-                                    <button aria-label={product.id + AriaLabelStr.removeOneQuantityToList} onClick={() => removeQuantityFromList(product)}>-</button>
+                                    <button aria-label={product.id + AriaLabelStr.removeOneQuantityToList} onClick={() => removeQuantityFromList(product, 1)}>-</button>
                                 </td>
                                 <td>
-                                    <img src='product.img' alt='Product'>
-                                    </img>
+                                <img
+                                        src={product.imageUrl}
+                                        alt={product.name}
+                                        width="100" />
                                 </td>
                             </tr>
                         )
