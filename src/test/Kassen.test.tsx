@@ -85,7 +85,8 @@ describe(App.name +'Function of form', () => {
 
         //Server response fra requestbin.com testes med alle felter gyldige
         fireEvent.submit(form);
-        //await screen.findByText("Besked fra server om at data er modtaget");    
+        fireEvent.submit(form);
+        await screen.findByText("Tak for ordren varerne afsendes snart");    
     })  
     
 });

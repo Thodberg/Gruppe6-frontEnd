@@ -8,6 +8,7 @@ type Props = {
 
 export const AddressForms = ({ products }: Props) => {
   const [loading, setLoading] = useState(false);
+  const [serverAnswerOk, setServerAnswerOk] = useState(false);
   const [error, setError] = useState("");
   const verifyAll = () => {}
 
@@ -62,28 +63,53 @@ async function handleSubmit(e: FormEvent) {
       return;
     } 
 
-    console.log("hallo " + formElements.terms.value)
+    const firstName = encodeURIComponent(formElements.first_name.value);
+    const efterName = encodeURIComponent(formElements.last_name.value);
+    const email = encodeURIComponent(formElements.email.value);
+    const country = encodeURIComponent(formElements.country.value);
+    const adress1 = encodeURIComponent(formElements.adress1.value);
+    const postnr1 = encodeURIComponent(formElements.post_nr_1.value);
+    const postnr2 = encodeURIComponent(formElements.post_nr_2.value);
+    const phone = encodeURIComponent(formElements.phone.value);
+    const terms = encodeURIComponent(formElements.terms.value);
+    //const vatnr = encodeURIComponent(formElements.);
+    //const by2 = encodeURIComponent(formElements.);
+    //const by1 = encodeURIComponent(formElements.);
+    //const adress2 = encodeURIComponent(formElements.);
+    //const firmanavn = encodeURIComponent(formElements.);
 
-    // data sendes til requestbin.com
-      /**const logResponse = await fetch(
-        "https://eoy1vosu2h8dew3.m.pipedream.net",
+    // oplysninger om varer, navn, adresse og forsendelse postes til requestbin.com
+    try {
+      const logResponse = await fetch(
+        "https://eo3xhv1luyfvymx.m.pipedream.net",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            url,
-            count: releases.length,
+            products,
+            delivery: "Bring", // hardcoded skulle egentlig være kommet fra usestate
+            firstName : firstName,
+            lastName: efterName,
+            email: email,
+            country: country,
+            adress1: adress1,
+            postnr1: postnr1, 
+            postnr2: postnr2,
+            terms: terms,
+            phone: phone,
           }),
         }
       );
       if (!logResponse.ok) {
-        setError("Could not log search");
+        setError("Din ordre kunne ikke behandles");
+      } else if(logResponse.ok) {
+        setServerAnswerOk(true)
       }
     } finally {
       setLoading(false);
-    }*/
+    }
   }
 
   function onValidatePhone(e: FormEvent) {
@@ -160,7 +186,7 @@ return (
         name={AriaLabelStr.user_postnr_1} onInput={onValidatePostNumber}
         aria-label={AriaLabelStr.user_postnr_1}/>    
       <div className="break"></div>  
-        <label htmlFor="By_nr_1">By</label>
+        <label htmlFor="by_nr_1">By</label>
       <div className="break"></div>
         <input className="theme-address-forms" type="text" id="by_nr_1" name={AriaLabelStr.user_by_1} 
         aria-label={AriaLabelStr.user_by_1}/>        
@@ -190,13 +216,13 @@ return (
        ></input>
     </li>
     <li>
-    <label htmlFor="firmanavn">Firmanavn</label>
+    <label htmlFor="company_name">Firmanavn</label>
     <div className="break"></div>
       <input className="theme-address-forms" type="text" id="company_name" name="company_name" 
       aria-label={AriaLabelStr.firma_navn}/>
     </li>
     <li>
-    <label htmlFor="firma_VAT">firma VAT</label>
+    <label htmlFor="VAT">firma VAT</label>
     <div className="break"></div>
       <input className="theme-address-forms" type="tel" id="VAT" name="VAT"
        pattern="[0-9]{8}" aria-label={AriaLabelStr.firma_vat}
@@ -236,9 +262,9 @@ return (
       </p>
         {error && <p>{error}</p>}
         {loading && <p>Loading...</p>}
-        {!loading && (
+        {!loading && serverAnswerOk && (
         <>
-          <p>Waiting for esponse from server:</p>
+          <p>Tak for ordren varerne afsendes snart</p>
           <ol>
             
           </ol>
