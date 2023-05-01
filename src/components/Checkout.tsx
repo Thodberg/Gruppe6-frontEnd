@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Product } from '../models/Product';
 import deliveryCosts from "../Delivery.json"
 import { AriaLabelStr } from '../models/AriaLabelStr';
-import { AriaLabelStr } from '../models/AriaLabelStr';
 
 
 type Props = {
