@@ -25,7 +25,7 @@ export class AriaLabelStr {
     static readonly user_postnr_2 = "user_postnr_2"
     static readonly user_by_2 = "user_by_2"
     static readonly telefon_nr = "telefon_nr"
-    static readonly telefon_nr_err = "Please enter a valid 8 digit phone number"
+    static readonly user_telefon_nr_err = "Please enter a valid 8 digit phone number"
     static readonly firma_navn = "firma_navn"
     static readonly firma_vat = "firma_vat"
     static readonly vilkaar_accept = "vilkaar_accept"
