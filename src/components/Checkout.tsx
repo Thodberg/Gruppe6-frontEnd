@@ -19,6 +19,7 @@ const DELIVERYCOSTS = [
         img: "src/assets/bring logo.png",
         altText: "Bring",
         description: "Valgfri pakkeshop 1-2 hverdage"
+        
     },
     {
         name: "Plante Land",

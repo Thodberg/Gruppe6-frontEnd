@@ -8,7 +8,7 @@
     "rebateQuantity": 3,
     "rebatePercent": 10,
     "upsellProductId": null,
-    "imageUrl": "https://apopro.dk/Images/d3-vitamin-staerk-kapsler-90-%C2%B5g-kosttilskud-120-stk-214878"
+    "img": "src/assets/plants/redRose.png"
   },
   {
     "id": "pink-large-flowered-rose",
@@ -19,7 +19,7 @@
     "rebateQuantity": 2,
     "rebatePercent": 25,
     "upsellProductId": "vitamin-c-depot-500-250",
-    "img": ""
+    "img": "src/assets/plants/bigPinkRose.png"
   },
   {
     "id": "yellow-english-rose",
@@ -29,8 +29,8 @@
     "quantity": 1,
     "rebateQuantity": 3,
     "rebatePercent": 10,
-    "upsellProductId": "",
-    "img": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/yellowRose.png"
   },
   {
     "id": "pottingSoil-40L",
@@ -40,8 +40,8 @@
     "quantity": 2,
     "rebateQuantity": 5,
     "rebatePercent": 10,
-    "upsellProductId": "",
-    "img": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/pottemuld40.png"
   },
   {
     "id": "pottingSoil-18L",
@@ -52,7 +52,7 @@
     "rebateQuantity": 0,
     "rebatePercent": 0,
     "upsellProductId": "pottingSoil-40L",
-    "img": ""
+    "img": "src/assets/plants/pottemuld18.webp"
   },
   {
     "id": "lemonTree-H70",
@@ -63,7 +63,7 @@
     "rebateQuantity": 2,
     "rebatePercent": 50,
     "upsellProductId": "lemonTree-H90",
-    "img": ""
+    "img": "src/assets/plants/limontree70.png"
   },
   {
     "id": "lemonTree-H90",
@@ -73,8 +73,8 @@
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
-    "upsellProductId": "",
-    "img": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/lemontree90.png"
   },
   {
     "id": "rubbertree-H60",
@@ -84,8 +84,8 @@
     "quantity": 1,
     "rebateQuantity": 3,
     "rebatePercent": 10,
-    "upsellProductId": "",
-    "img": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/rubbertree.png"
   },
   {
     "id": "Pink-QueenKalanchoe",
@@ -96,7 +96,7 @@
     "rebateQuantity": 3,
     "rebatePercent": 10,
     "upsellProductId": "",
-    "img": ""
+    "img": "src/assets/plants/pink-queen-kalanchoe.png"
   },
   {
     "id": "ZantedeschiaMorningSun-orange",
@@ -106,8 +106,8 @@
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
-    "upsellProductId": "",
-    "img": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/zantedeschia-morningSun.png"
   },
   {
     "id": "KalanchoeMagicBell",
@@ -117,8 +117,8 @@
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 20,
-    "upsellProductId": "",
-    "img": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/magicbell.png"
   },
   {
     "id": "yellowOrkidé",
@@ -128,7 +128,8 @@
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
-    "upsellProductId": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/yellowOrkide.png"
   },
   {
     "id": "orangeOrkidé",
@@ -138,18 +139,19 @@
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 10,
-    "upsellProductId": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/OrangeOrkide.png"
   },
   {
     "id": "whiteOrkidé",
     "name": "Hvid Orkidé",
-    "price": 189.00,
+    "price": 159.00,
     "currency": "DKK",
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 10,
-    "upsellProductId": "",
-    "img": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/whiteOrkide.png"
   },
   {
     "id": "bayonetPlant9",
@@ -160,7 +162,7 @@
     "rebateQuantity": 2,
     "rebatePercent": 10,
     "upsellProductId": "bayonetPlant11",
-    "img": ""
+    "img": "src/assets/plants/smallBajonetPlant9.png"
   },
   {
     "id": "bayonetPlant11",
@@ -170,8 +172,8 @@
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 10,
-    "upsellProductId": "",
-    "img": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/bigBajonetPlant11.png"
   },
   {
     "id": "umbrellaTree",
@@ -181,8 +183,8 @@
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
-    "upsellProductId": "",
-    "img": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/umbrellatree.png"
   },
   {
     "id": "livingRoomAsh",
@@ -192,8 +194,8 @@
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
-    "upsellProductId": "",
-    "img": ""
+    "upsellProductId": null,
+    "img": "src/assets/plants/stueasktree.png"
   },
   {
     "id": "EcheveriaGibbiflora",
@@ -203,7 +205,7 @@
     "quantity": 1,
     "rebateQuantity": 5,
     "rebatePercent": 10,
-    "upsellProductId": "",
+    "upsellProductId": null,
     "img": ""
   },
   {
@@ -214,7 +216,7 @@
     "quantity": 3,
     "rebateQuantity": 5,
     "rebatePercent": 10,
-    "upsellProductId": "",
+    "upsellProductId": null,
     "img": ""
   },
   {
@@ -225,7 +227,7 @@
     "quantity": 4,
     "rebateQuantity": 5,
     "rebatePercent": 10,
-    "upsellProductId": "",
+    "upsellProductId": null,
     "img": ""
   },
   {
@@ -247,7 +249,7 @@
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 10,
-    "upsellProductId": "",
+    "upsellProductId": null,
     "img": ""
   },
   {
@@ -258,7 +260,7 @@
     "quantity": 1,
     "rebateQuantity": 4,
     "rebatePercent": 25,
-    "upsellProductId": "",
+    "upsellProductId": null,
     "img": ""
   },
   {
@@ -280,7 +282,7 @@
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 10,
-    "upsellProductId": "",
+    "upsellProductId": null,
     "img": ""
   },
   {
@@ -313,7 +315,7 @@
     "quantity": 1,
     "rebateQuantity": 2,
     "rebatePercent": 10,
-    "upsellProductId": "",
+    "upsellProductId": null,
     "img": ""
   },
   {
@@ -324,7 +326,7 @@
     "quantity": 2,
     "rebateQuantity": 0,
     "rebatePercent": 0,
-    "upsellProductId": "",
+    "upsellProductId": null,
     "img": ""
   },
   {
@@ -335,7 +337,7 @@
     "quantity": 1,
     "rebateQuantity": 0,
     "rebatePercent": 0,
-    "upsellProductId": "",
+    "upsellProductId": null,
     "img": ""
   }
 ]
