@@ -59,26 +59,21 @@ async function handleSubmit(e: FormEvent) {
 
     console.log("hallo " + formElements.terms.value)
 
-    // data sendes til requestbin.com
-      /**const logResponse = await fetch(
-        "https://eoy1vosu2h8dew3.m.pipedream.net",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            url,
-            count: releases.length,
-          }),
-        }
-      );
-      if (!logResponse.ok) {
-        setError("Could not log search");
-      }
-    } finally {
-      setLoading(false);
-    }*/
+    const headers = new Headers()
+    headers.append("Content-Type", "application/json")
+    
+    const body = {
+      form
+    }
+    
+    const options = {
+      method: "POST",
+      headers,
+      mode: "cors",
+      body: JSON.stringify(body),
+    }
+    
+    fetch("https://eohcb5wvg6ce6xl.m.pipedream.net", options)
   }
 
   function onValidatePhone(e: FormEvent) {
@@ -199,7 +194,7 @@ return (
     <li>
       <label>Vilkår*</label>
     <div id='dialog-window'>
-        <div id='scrollable-content' >
+        <div id='scrollable-content'>
             En masse vilkår for køb kan puttes her. Nu bare dummy tekst så man kan se scrolle virker.
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, earum facere. 
               Eum deserunt esse necessitatibus ipsum doloremque quos expedita odit porro quisquam 
@@ -212,7 +207,9 @@ return (
         </div>
         </div>
         <br />
-    </li>    
+        <br />
+        <br />
+    </li>
         <div className='theme-c'>
             <label>
                 <input type="checkbox" id="terms" name="terms" aria-label={AriaLabelStr.tilbud_accept}
