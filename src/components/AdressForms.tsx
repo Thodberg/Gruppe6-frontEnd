@@ -51,7 +51,7 @@ export const AddressForms = ({ products }: Props) => {
       phone: HTMLInputElement;
       terms: HTMLInputElement;
     };
-
+    
     if (formElements.email.value === "") {
       formElements.email.setCustomValidity(AriaLabelStr.user_email_err);
       return;
@@ -138,6 +138,7 @@ export const AddressForms = ({ products }: Props) => {
       target.setCustomValidity("");
     }
   }
+
 
 
   return (
@@ -262,9 +263,9 @@ export const AddressForms = ({ products }: Props) => {
       <p>
         <button type="submit">Til betaling</button>
       </p>
-      {error && <p>{error}</p>}
-      {loading && <p>Loading...</p>}
-      {!loading && serverAnswerOk && (
+        {error && <p>{error}</p>}
+        {loading && <p>Loading...</p>}
+        {!loading && serverAnswerOk && (
         <>
           <p>Tak for ordren varerne afsendes snart</p>
           <ol>
