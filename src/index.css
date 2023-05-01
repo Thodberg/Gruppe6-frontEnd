@@ -129,14 +129,24 @@ table {
 .theme-checkout {
   background: #EBF6D8;
   color: #2C4A1D;
-  position: fixed;
+  position: flex;
   right: 0;
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4);
   transition: 0.3s;
   margin-right: 25px;
   padding-bottom: 10px;
 }
-
+.appLayout{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4rem;
+}
+@media only screen and (min-width: 1400px) {
+.appLayout {
+    flex-direction: row;
+}
+}
 .theme-address-forms {
   width: 200px;
   margin-bottom: 20px;

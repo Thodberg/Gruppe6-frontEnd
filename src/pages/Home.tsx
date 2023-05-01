@@ -13,13 +13,13 @@ export const Home = ({ products, setProducts }: Props) => {
     //const [products, setProducts] = useState<Product[]>(MockData);
 
     return (
-        <>
+        <div className="appLayout">
             <div>
                 <Products products={products} setProducts={setProducts} />
             </div>
             <div>
                 <Checkout products={products} />
             </div>
-        </>
+        </div>
     )
 }
