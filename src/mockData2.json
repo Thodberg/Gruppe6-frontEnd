@@ -9,7 +9,7 @@
         "rebateQuantity": 3,
         "rebatePercent": 10,
         "upsellProductId": "",
-        "imageUrl": ""
+        "imageUrl": "src/assets/redRose.webp"
     },
     {
         "id": "orangeOrkidé",
@@ -21,7 +21,7 @@
         "rebateQuantity": 2,
         "rebatePercent": 11,
         "upsellProductId": "",
-        "imageUrl": ""
+        "imageUrl": "src/assets/OrangeOrkide.webp"
     },
     {
         "id": "whiteOrkidé",
@@ -33,6 +33,6 @@
         "rebateQuantity": 2,
         "rebatePercent": 12,
         "upsellProductId": "",
-        "imageUrl": ""
+        "imageUrl": "src/assets/cactus.png"
     }
 ]
