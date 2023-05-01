@@ -85,7 +85,8 @@ export const Checkout = ({ products }: Props) => {
                                         <img
                                             src={method.img}
                                             alt={method.altText}
-                                            width="100" />
+                                            width="100"
+                                            height="40" />
 
                                         {method.description}
                                     </p>
