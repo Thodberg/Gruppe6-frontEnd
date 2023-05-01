@@ -16,7 +16,7 @@
     {
         "name": "Plante Land",
         "price": 0,
-        "img": "",
+        "img": "src/assets/cactus.png",
         "altText": "Plante Land",
         "description": "Hent i butik"
     }
