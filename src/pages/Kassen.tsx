@@ -2,9 +2,16 @@
 
 import { boolean } from "yargs"
 import { AddressForms } from "../components/AdressForms"
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
+import { Product } from "../models/Product";
 
-export const Kassen = () => {
+type Props = {
+    products: Product[];
+    setProducts: Dispatch<SetStateAction<Product[]>>;
+}
+
+
+export const Kassen = ({ products, setProducts }: Props) => {
     const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
 
     function isChecked() {
@@ -32,7 +39,7 @@ export const Kassen = () => {
             </h4>
 
             <div>
-                <AddressForms />
+                <AddressForms products={products}/>
             </div>
         </div>
     )

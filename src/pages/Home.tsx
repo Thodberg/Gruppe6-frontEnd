@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Products } from "../components/Products";
 import { Product } from "../models/Product";
-import MockData from "../mockData2.json"
+//import MockData from "../mockData2.json"
 import { Checkout } from "../components/Checkout";
 
-export const Home = () => {
-    const [products, setProducts] = useState<Product[]>(MockData);
+type Props = {
+    products: Product[];
+    setProducts: Dispatch<SetStateAction<Product[]>>;
+}
+
+export const Home = ({ products, setProducts }: Props) => {
+    //const [products, setProducts] = useState<Product[]>(MockData);
 
     return (
         <>
