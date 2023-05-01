@@ -197,39 +197,7 @@
     "upsellProductId": null,
     "img": "src/assets/plants/stueasktree.png"
   },
-  {
-    "id": "EcheveriaGibbiflora",
-    "name": "Echeveria Gibbiflora",
-    "price": 19.95,
-    "currency": "DKK",
-    "quantity": 1,
-    "rebateQuantity": 5,
-    "rebatePercent": 10,
-    "upsellProductId": null,
-    "img": ""
-  },
-  {
-    "id": "EcheveriaAgavoides",
-    "name": "Echeveria Agavoides",
-    "price": 19.95,
-    "currency": "DKK",
-    "quantity": 3,
-    "rebateQuantity": 5,
-    "rebatePercent": 10,
-    "upsellProductId": null,
-    "img": ""
-  },
-  {
-    "id": "pearlsOnString",
-    "name": "Perler på snor",
-    "price": 19.95,
-    "currency": "DKK",
-    "quantity": 4,
-    "rebateQuantity": 5,
-    "rebatePercent": 10,
-    "upsellProductId": null,
-    "img": ""
-  },
+  
   {
     "id": "cherriesSweetheart",
     "name": "Kirsebærtræ Sweetheart",
@@ -239,7 +207,7 @@
     "rebateQuantity": 4,
     "rebatePercent": 25,
     "upsellProductId": "cherriesSunburst",
-    "img": ""
+    "img": "src/assets/plants/sweetheart.png"
   },
   {
     "id": "cherriesSunburst",
@@ -250,7 +218,7 @@
     "rebateQuantity": 2,
     "rebatePercent": 10,
     "upsellProductId": null,
-    "img": ""
+    "img": "src/assets/plants/pyramidCherry.png"
   },
   {
     "id": "redIngridMarie",
@@ -261,7 +229,7 @@
     "rebateQuantity": 4,
     "rebatePercent": 25,
     "upsellProductId": null,
-    "img": ""
+    "img": "src/assets/plants/ingridApple.png"
   },
   {
     "id": "rosette",
@@ -272,7 +240,7 @@
     "rebateQuantity": 4,
     "rebatePercent": 25,
     "upsellProductId": "redIngridMarie",
-    "img": ""
+    "img": "src/assets/plants/rosetteApple.png"
   },
   {
     "id": "plantSpade-2C",
