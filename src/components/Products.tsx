@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 
 import { Product } from '../models/Product';
+import {AriaLabelStr} from '../models/AriaLabelStr';
 
 type Props = {
     products: Product[];
@@ -10,20 +11,15 @@ type Props = {
 export const Products = ({ products, setProducts }: Props) => {
 
     //TODO add nudging to buy more to get a rebate
-    function buyMore(product: Product):Product | undefined {
-        return product.((expe))
+    function buyMore(product: Product) {
+        if (product.quantity < product.rebateQuantity) {
+            return (product.rebateQuantity)
+        } else {
+            return (product.rebateQuantity)
+        }
 
     }
-    function findExpensiveProduct(products: Product[]): Product | undefined {
-        return products.reduce((expensive, current) => {
-            return current.price > expensive.price ? current : expensive;
-        },
-        products[0])
-    }
-    function moreExpensiveOptions(product: Product): HTMLDivElement{
-        const div = document.createElement("div");
-        div.
-    } {
+    function moreExpensiveOptions(product: Product): void {
         if (product.upsellProductId.length > 0) {
             console.log('Der er et produkt i bedre kvalitet som minder om til ${product.price}, er du intereseret?')
         }
@@ -55,7 +51,8 @@ export const Products = ({ products, setProducts }: Props) => {
         )
     }
 
-    function removeQuantityFromList(product: Product) {
+    function removeQuantityFromList(product: Product, quantity: number) {
+        for (let index = 0; index < quantity; index++) {
         let newProducts = [...products,
         ]
         newProducts.find((e) => {
@@ -71,23 +68,27 @@ export const Products = ({ products, setProducts }: Props) => {
             }
         })
     }
+    }
 
     function removeProductFromList(product: Product) {
         document.getElementById(product.id)?.remove()
     }
 
     function calcPrice(product: Product) {
-        if (product.quantity >= product.rebateQuantity && product.price * product.quantity >= 300) {
+        /**if (product.quantity >= product.rebateQuantity && product.price * product.quantity >= 300) {
+
             return ((product.price * product.quantity) * (0.9 - product.rebatePercent / 100))
         }
         else if (product.price * product.quantity >= 300) {
             return ((product.price * product.quantity) * 0.9)
-        }
-        else if (product.quantity >= product.rebateQuantity) {
-            return ((product.price * product.quantity) * (1 - product.rebatePercent / 100))
+        }*/
+        if (product.quantity >= product.rebateQuantity) {
+            product.priceForQuantity = ((product.price * product.quantity) * (1 - product.rebatePercent / 100))
+            return product.priceForQuantity
         }
         else {
-            return (product.price * product.quantity)
+            product.priceForQuantity = (product.price * product.quantity)
+            return product.priceForQuantity
         }
     }
 
@@ -103,33 +104,38 @@ export const Products = ({ products, setProducts }: Props) => {
                                         {product.name}
                                     </h2>
                                     <div className='break'></div>
-                                    <button aria-label={product.id + "removeProductFromList"} onClick={() => removeProductFromList(product)}>🗑️</button>
+                                    <button aria-label={product.id + AriaLabelStr.removeProductFromList} onClick={() => removeQuantityFromList(product, product.quantity)}>🗑️</button>
 
                                 </td>
                                 <td width="100px">
-                                    <h3 id={product.id + "bulkDiscount"}>
+                                    <h3 id={product.id + AriaLabelStr.bulkDiscount} aria-label={product.id + AriaLabelStr.bulkDiscount}>
                                         {(Math.round(calcPrice(product) * 100) / 100) + " " + product.currency}
                                     </h3>
                                     <p>
-                                        Køb {product.rebateQuantity} produkter og få 10%
+                                        Pris pr. stk {product.price } {product.currency}<br/> 
+                                         
+                                        Køb {product.rebateQuantity} stk og få {product.rebatePercent}% rabat
                                     </p>
+
                                 </td>
                                 <td>
-                                    <button aria-label={product.id + "addQuantityToList"} onClick={() => addQuantityToList(product)}>+</button>
+                                    <button aria-label={product.id + AriaLabelStr.addOneQuantityToList} onClick={() => addQuantityToList(product)}>+</button>
                                 </td>
                                 <td width="50px">
                                     <center>
-                                        <h4 id={product.id + "quantity"} aria-label={product.id + "quantity"}>
+                                        <h4 id={product.id + AriaLabelStr.quantity} aria-label={product.id + AriaLabelStr.quantity}>
                                             {product.quantity}
                                         </h4>
                                     </center>
                                 </td>
                                 <td>
-                                    <button aria-label={product.id + "removeQuantityFromList"} onClick={() => removeQuantityFromList(product)}>-</button>
+                                    <button aria-label={product.id + AriaLabelStr.removeOneQuantityToList} onClick={() => removeQuantityFromList(product, 1)}>-</button>
                                 </td>
                                 <td>
-                                    <img src='product.img' alt='Product'>
-                                    </img>
+                                <img
+                                        src={product.imageUrl}
+                                        alt={product.name}
+                                        width="100" />
                                 </td>
                             </tr>
                         )
