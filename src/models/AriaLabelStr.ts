@@ -1,5 +1,5 @@
 export class AriaLabelStr {
-    
+
     static readonly subtotal = "subtotal";
     static readonly levering = "levering";
     static readonly total = "total";
@@ -11,7 +11,7 @@ export class AriaLabelStr {
     static readonly removeProductFromList = "removeProductFromList";
     static readonly quantity = "quantity"
     static readonly bulkDiscount = "bulkDiscount"
-    
+
     static readonly user_first_name = "user_first_name";
     static readonly user_last_name = "user_last_name";
     static readonly user_email = "user_email";
@@ -31,4 +31,5 @@ export class AriaLabelStr {
     static readonly vilkaar_accept = "vilkaar_accept"
     static readonly vilkaar_accept_err = "Vilkår og forretningsbetingelser skal accepteres"
     static readonly tilbud_accept = "tilbud_accept"
+
 }

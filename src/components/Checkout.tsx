@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Product } from '../models/Product';
 import deliveryCosts from "../Delivery.json"
 import { AriaLabelStr } from '../models/AriaLabelStr';
+import { AriaLabelStr } from '../models/AriaLabelStr';
 
 
 type Props = {
@@ -73,6 +74,7 @@ export const Checkout = ({ products }: Props) => {
             </div>
             <form>
                 <fieldset>
+                    <legend>Leveringsinformationer</legend>
                     {deliveryCosts.map((method) => {
                         return (
                             <div>
@@ -93,14 +95,15 @@ export const Checkout = ({ products }: Props) => {
                         )
                     })}
                 </fieldset>
-            </form>
 
-            <div>
-                <h1 aria-label={AriaLabelStr.total} >{total}</h1>
-                {<center>
-                    <button onClick={(ev) => navigate("kassen")}>Kassen</button>
-                </center>}
-            </div>
+
+                <div>
+                    <h1 aria-label={AriaLabelStr.total} >{total}</h1>
+                    {<center>
+                        <button type="submit" onClick={(ev) => navigate("kassen")}>Kassen</button>
+                    </center>}
+                </div>
+            </form>
         </div>
     )
 }
