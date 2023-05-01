@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Kassen } from "./pages/Kassen";
 import { Home } from "./pages/Home";
-
+import { Product } from "./models/Product";
+import MockData from "./mockData2.json"
 
 export default function App() {
+  const [products, setProducts] = useState<Product[]>(MockData);
   const [page, setPage] = useState("home");
   const [count, setCount] = useState(0);
   const [navigating, setNavigating] = useState(true);
@@ -41,18 +43,18 @@ export default function App() {
         </h1>
         <ul className="theme-navBar">
           <li>
-            <a onClick={(ev) => navigate(ev, "home")}>Home</a>
+            <a aria-label="home" onClick={(ev) => navigate(ev, "home")}>Home</a>
           </li>
           <li>
-            <a onClick={(ev) => navigate(ev, "kassen")}>Kassen</a>
+            <a aria-label="kassen" onClick={(ev) => navigate(ev, "kassen")}>Kassen</a>
           </li>
         </ ul>
       </div>
       {page === "home" && (
-        <Home />
+        <Home products={products} setProducts={setProducts} />
       )}
       {page === "kassen" && (
-        <Kassen />
+        <Kassen products={products} setProducts={setProducts} />
       )}
     </body>
   );
