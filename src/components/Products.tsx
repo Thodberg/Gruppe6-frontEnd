@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 
 import { Product } from '../models/Product';
-import {AriaLabelStr} from '../models/AriaLabelStr';
+import { AriaLabelStr } from '../models/AriaLabelStr';
 
 type Props = {
     products: Product[];
@@ -53,21 +53,21 @@ export const Products = ({ products, setProducts }: Props) => {
 
     function removeQuantityFromList(product: Product, quantity: number) {
         for (let index = 0; index < quantity; index++) {
-        let newProducts = [...products,
-        ]
-        newProducts.find((e) => {
-            if (e.id === product.id) {
-                e.quantity--;
-                if (e.quantity < 1) {
-                    removeProductFromList(product)
+            let newProducts = [...products,
+            ]
+            newProducts.find((e) => {
+                if (e.id === product.id) {
+                    e.quantity--;
+                    if (e.quantity < 1) {
+                        removeProductFromList(product)
+                    }
+                    setProducts(
+                        [...newProducts,
+                        ]
+                    )
                 }
-                setProducts(
-                    [...newProducts,
-                    ]
-                )
-            }
-        })
-    }
+            })
+        }
     }
 
     function removeProductFromList(product: Product) {
@@ -94,7 +94,10 @@ export const Products = ({ products, setProducts }: Props) => {
 
     return (
         <div className='theme-b'>
-            <table>
+            <table >
+                <caption>
+                    <th scope="col">Produkter i kurv</th>
+                </caption>
                 <tbody>
                     {products.map((product, index) => {
                         return (
@@ -105,15 +108,14 @@ export const Products = ({ products, setProducts }: Props) => {
                                     </h2>
                                     <div className='break'></div>
                                     <button aria-label={product.id + AriaLabelStr.removeProductFromList} onClick={() => removeQuantityFromList(product, product.quantity)}>🗑️</button>
-
                                 </td>
                                 <td width="100px">
                                     <h3 id={product.id + AriaLabelStr.bulkDiscount} aria-label={product.id + AriaLabelStr.bulkDiscount}>
                                         {(Math.round(calcPrice(product) * 100) / 100) + " " + product.currency}
                                     </h3>
                                     <p>
-                                        Pris pr. stk {product.price } {product.currency}<br/> 
-                                         
+                                        Pris pr. stk {product.price} {product.currency}<br />
+
                                         Køb {product.rebateQuantity} stk og få {product.rebatePercent}% rabat
                                     </p>
 
@@ -132,7 +134,7 @@ export const Products = ({ products, setProducts }: Props) => {
                                     <button aria-label={product.id + AriaLabelStr.removeOneQuantityToList} onClick={() => removeQuantityFromList(product, 1)}>-</button>
                                 </td>
                                 <td>
-                                <img
+                                    <img
                                         src={product.imageUrl}
                                         alt={product.name}
                                         width="100" />
