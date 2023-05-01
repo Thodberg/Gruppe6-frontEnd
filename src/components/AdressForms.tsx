@@ -1,7 +1,12 @@
 import {AriaLabelStr} from '../models/AriaLabelStr';
 import { FormEvent, useState } from "react";
+import { Product } from '../models/Product';
 
-export const AddressForms = () => {
+type Props = {
+  products: Product[];
+}
+
+export const AddressForms = ({ products }: Props) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const verifyAll = () => {}
@@ -46,14 +51,14 @@ async function handleSubmit(e: FormEvent) {
       terms: HTMLInputElement;
     };
     
-    if (formElements.post_nr_1.value === "") {
-      formElements.post_nr_1.setCustomValidity(AriaLabelStr.user_postnr_err);
-      return;
-    } else if (formElements.email.value === "") {
+    if (formElements.email.value === "") {
       formElements.email.setCustomValidity(AriaLabelStr.user_email_err);
       return;
-    } else if (formElements.phone.value === "") {
-      formElements.phone.setCustomValidity(AriaLabelStr.telefon_nr_err);
+    } else if (formElements.post_nr_1.value === "") {
+      formElements.post_nr_1.setCustomValidity(AriaLabelStr.user_postnr_err);
+      return;
+    } else  if (formElements.phone.value === "") {
+      formElements.phone.setCustomValidity(AriaLabelStr.user_telefon_nr_err);
       return;
     } 
 
@@ -84,7 +89,7 @@ async function handleSubmit(e: FormEvent) {
   function onValidatePhone(e: FormEvent) {
     const target = e.target as HTMLInputElement;
     if (target.validity.patternMismatch) {
-      target.setCustomValidity(AriaLabelStr.telefon_nr_err);
+      target.setCustomValidity(AriaLabelStr.user_telefon_nr_err);
     } else {
       target.setCustomValidity("");
     }
@@ -111,7 +116,7 @@ async function handleSubmit(e: FormEvent) {
 
 return (
 
-<form onSubmit={handleSubmit}> 
+<form aria-label="adresse_form" onSubmit={handleSubmit}> 
 
   <ul>
     <li>      
@@ -138,8 +143,9 @@ return (
       <div className="break"></div>
       <select className="theme-address-forms" id="country"   required 
       aria-label={AriaLabelStr.user_country}>
-        <option value=""></option>
-        <option value="Denmark">Denmark</option>
+         <option value="Denmark">Denmark</option>
+         <option value="empty"></option>
+       
       </select>
     </li>
     <li>
@@ -154,9 +160,9 @@ return (
         name={AriaLabelStr.user_postnr_1} onInput={onValidatePostNumber}
         aria-label={AriaLabelStr.user_postnr_1}/>    
       <div className="break"></div>  
-        <label htmlFor="By_nr_1">By*</label>
+        <label htmlFor="By_nr_1">By</label>
       <div className="break"></div>
-        <input className="theme-address-forms" type="text" id="by_nr_1" required name={AriaLabelStr.user_by_1} 
+        <input className="theme-address-forms" type="text" id="by_nr_1" name={AriaLabelStr.user_by_1} 
         aria-label={AriaLabelStr.user_by_1}/>        
     </li>
     <li>
@@ -232,7 +238,7 @@ return (
         {loading && <p>Loading...</p>}
         {!loading && (
         <>
-          <p>Response from server:</p>
+          <p>Waiting for esponse from server:</p>
           <ol>
             
           </ol>
