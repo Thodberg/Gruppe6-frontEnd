@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../models/Product';
-import { Link } from 'react-router-dom';
 import deliveryCosts from "../Delivery.json"
 import {AriaLabelStr} from '../models/AriaLabelStr';
 
@@ -39,7 +38,7 @@ export const Checkout = ({ products }: Props) => {
 
         setProductPrice(productPrice)
         setProductPriceBeforeRebate("Sum:   " + (Math.round(productPriceBeforeRebate * 100) / 100) + " DKK");
-        setRebate                  ("-Rabat:   " + (Math.round(rebate * 100) / 100) + " DKK");
+        setRebate                  ("Rabat:   " + (Math.round(rebate * 100) / 100) + " DKK");
         setSubtotal                ("Subtotal:   " + (Math.round(productPrice * 100) / 100) + " DKK");
     }, [products])
 
@@ -53,6 +52,11 @@ export const Checkout = ({ products }: Props) => {
         setDeliveryPrice(price);
         setCurrentDeliver(name)
     }
+
+    function navigate(newPage: string) {
+        history.pushState({}, "", `?page=${newPage}`);// browserens history opdateres
+        dispatchEvent(new PopStateEvent("popstate"));
+      } 
 
     return (
         <div className='theme-checkout'>
@@ -93,13 +97,10 @@ export const Checkout = ({ products }: Props) => {
         
             <div>
                 <h1 aria-label={AriaLabelStr.total} >{total}</h1>
-                {/**<center>
-                    <Link to="/kassen">
-                        <button>Til kassen</button>
-                    </Link>
-                </center>*/}
+                {<center>
+                    <button onClick={(ev) => navigate("kassen")}>Kassen</button>
+                </center>}
             </div>            
-            {/**<Total products={products} />*/}
         </div>
     )
 }
