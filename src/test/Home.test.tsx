@@ -70,7 +70,7 @@ describe(App.name +'Calculation of prices and quantity', () => {
         expect(screen.getByText("Levering: 46 DKK")).toBeInTheDocument();
         expect(screen.getByText("Total: 762 DKK")).toBeInTheDocument();
 
-        // Dette er levering af Bring
+        // Dette er levering af GLS
         fireEvent.click(screen.getByRole("radio", {name: "GLS" }))
         expect(screen.getByText("Subtotal: 716 DKK")).toBeInTheDocument();
         expect(screen.getByText("Levering: 42 DKK")).toBeInTheDocument();
@@ -78,7 +78,7 @@ describe(App.name +'Calculation of prices and quantity', () => {
 
     }) 
 
-    it('Det testen om rabat for højt købsbeløb udregnes korrekt og om levering beregnes rigtigt', () => {
+    it('Det testen om rabat for højt købsbeløb udregnes korrekt', () => {
         render(<App />);
         expect(screen.getByText("Sum: 716 DKK")).toBeInTheDocument();
         expect(screen.getByText("-Rabat: 0 DKK")).toBeInTheDocument();
